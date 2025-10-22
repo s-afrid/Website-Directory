@@ -2,6 +2,8 @@ import { useState } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import SearchFilter from './components/SearchFilter'
+import CardContainer from './components/cardContainer'
+import Footer from './components/Footer'
 
 
 function App() {
@@ -11,6 +13,10 @@ function App() {
      <Navbar />
      <Hero />
      <SearchFilter />
+
+     <CardContainer />
+
+     <Footer />
     </>
   )
 }
