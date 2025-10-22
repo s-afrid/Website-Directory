@@ -55,17 +55,17 @@ const Card = ({ data = {} }) => {
       <div className='flex justify-between items-end pb-3'> 
           
           {/* Tags Container with overflow hidden */}
-          <div className="tags ml-3 flex text-[12px] gap-2 overflow-hidden max-w-[65%]">
+          <div className="tags ml-3 flex sm:text-[7px] md:text-[12px] gap-2 overflow-hidden max-w-[65%]">
               {/* Show tags that fit, using 'whitespace-nowrap' and 'overflow-hidden' on the parent div to clip extra tags */}
               {tags.map((tag, index) => ( 
-                  <span key={index} className='py-1 px-3 text-white bg-black rounded-full flex-shrink-0'>
+                  <span key={index} className='py-1 px-3 text-white bg-black rounded-full'>
                       {tag}
                   </span>
               ))}
           </div>
           
           {/* Revenue Tag */}
-          <div className="revenue text-[13px] mr-3 ">
+          <div className="revenue sm:text-[9px] md:text-[13px] mr-3 ">
               <span className='font-bold text-green-500 py-2 px-3 bg-white rounded-full shadow-sm'>
                   {revenue}
               </span>

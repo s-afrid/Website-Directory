@@ -57,7 +57,7 @@ const Card = ({ data = {} }) => {
           
           {/* Tags Container with overflow hidden */}
           {/* Max-w-[65%] ensures space is reserved for the revenue tag */}
-          <div className="tags ml-2 flex text-[10px] gap-2 overflow-hidden max-w-[65%]">
+          <div className="tags ml-2 flex text-[7px] md:text-[10px] gap-2 overflow-hidden max-w-[65%]">
               {tags.map((tag, index) => ( 
                   <span key={index} className='py-1 px-3 text-white bg-black rounded-full flex-shrink-0 whitespace-nowrap'>
                       {tag}
@@ -66,7 +66,7 @@ const Card = ({ data = {} }) => {
           </div>
           
           {/* Revenue Tag */}
-          <div className="revenue text-[11px] mr-2">
+          <div className="revenue text-[9px] md:text-[11px] mr-2">
               <span className='font-bold text-green-500 py-2 px-3 bg-white rounded-full shadow-sm'>
                   {revenue}
               </span>
