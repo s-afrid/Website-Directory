@@ -59,7 +59,7 @@ const Card = ({ data = {} }) => {
           {/* Max-w-[65%] ensures space is reserved for the revenue tag */}
           <div className="tags ml-2 flex text-[7px] md:text-[10px] gap-2 overflow-hidden max-w-[65%]">
               {tags.map((tag, index) => ( 
-                  <span key={index} className='py-1 px-3 text-white bg-black rounded-full flex-shrink-0 whitespace-nowrap'>
+                  <span key={index} className='py-1 px-3 text-white bg-black rounded-full shrink-0 whitespace-nowrap'>
                       {tag}
                   </span>
               ))}
