@@ -1,6 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
 
 const Hero = () => {
+  // Initialize react-hook-form
+  const { register, handleSubmit, formState: { errors }, reset } = useForm();
+  
+  // State for success message
+  const [isSubscribed, setIsSubscribed] = useState(false);
+
+  const onSubmit = (data) => {
+    console.log("Subscription Data:", data.email);
+    
+    // Simulate successful subscription
+    setIsSubscribed(true);
+    reset(); // Clear the input field
+    
+    // Hide success message after 3 seconds
+    setTimeout(() => {
+      setIsSubscribed(false);
+    }, 3000);
+  };
+
   return (
     <section className="flex flex-col items-center text-center bg-[#adb5bd] py-12 md:py-16 lg:py-20 px-4 mx-3 mb-3 rounded-b-xl font-['Rubik']">
       
@@ -14,18 +34,46 @@ const Hero = () => {
         Discover the most innovative websites launching daily, from AI tools to unique e-commerce brands, curated just for you.
       </p>
 
-      {/* Newsletter Box (Responsive Layout: Stacks on mobile, inline on small screens and up) */}
-      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center w-full max-w-md gap-3 mb-8">
-        <input
-          type="email"
-          placeholder="Enter your email to get daily updates"
-          className="w-full sm:flex-1 px-5 py-3 outline-none bg-white border-2 border-gray-300 focus:border-black transition duration-200 rounded-xl text-gray-800 placeholder-gray-500"
-        />
-        <button className="w-full sm:w-auto bg-gray-800 text-white font-semibold px-6 py-3 hover:bg-black transition duration-200 rounded-xl shadow-md hover:shadow-lg">
-          Subscribe
-        </button>
-      </div>
+      {/* Form for Newsletter Subscription */}
+      <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-md">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center w-full gap-3 mb-3">
+          
+          {/* Email Input */}
+          <input
+            type="email"
+            placeholder="Enter your email to get daily updates"
+            // Register the input with react-hook-form, adding required validation
+            {...register("email", {  
+              pattern: {
+                value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                message: "Invalid email address"
+              }
+            })}
+            className={`w-full sm:flex-1 px-5 py-3 outline-none bg-white border-2 transition duration-200 rounded-xl text-gray-800 placeholder-gray-500 ${
+              errors.email ? 'border-red-500' : 'border-gray-300 focus:border-black'
+            }`}
+          />
+          
+          {/* Subscribe Button */}
+          <button 
+            type="submit"
+            className="w-full sm:w-auto bg-gray-800 text-white font-semibold px-6 py-3 hover:bg-black transition duration-200 rounded-xl shadow-md hover:shadow-lg"
+          >
+            Subscribe
+          </button>
+        </div>
 
+        {/* Error Message */}
+        {errors.email && (
+          <p className="text-red-600 text-sm mt-1 mb-2 text-left">{errors.email.message}</p>
+        )}
+        
+        {/* Success Message */}
+        {isSubscribed && (
+          <p className="text-green-600 font-semibold text-sm mt-1 mb-2">Thank you for subscribing!</p>
+        )}
+      </form>
+      
       <p className="text-sm text-gray-800 font-medium">
         Join 1000+ other inspiring readers 👩‍💻
       </p>

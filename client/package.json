@@ -14,8 +14,7 @@
     "lucide-react": "^0.546.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "semantic-ui-css": "^2.5.0",
-    "semantic-ui-react": "^2.1.5",
+    "react-hook-form": "^7.65.0",
     "tailwindcss": "^4.1.15"
   },
   "devDependencies": {
