@@ -1,0 +1,27 @@
+{
+  "id": "",
+  "title": "",
+  "oneLineDesc": "",
+  "url": "",
+  "imageURL": "",
+  "fullDesc": "",
+  "isFeatured": "",
+  "isSponsored": "",
+  "dateAdded": "",
+  
+  "tags": {
+    "industry": "",
+    "type": "",
+    "style": "",
+    "stack": ""
+  },
+  
+  "details": {
+    "founder": "",
+    "year": "",
+    "size": "",
+    "location": "",
+    "monRevenue": "",
+    "funding": ""
+  }
+}
