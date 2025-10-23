@@ -28,12 +28,12 @@ const HeroBanner = () => {
     >
       <div className="flex flex-col justify-center p-8 md:p-16 text-center rounded-3xl max-w-full self-start">
         {/* Heading */}
-        <h1 className="text-3xl xl:text-[7rem] lg:text-[4rem] md:text-[3rem] font-bold text-gray-900 mb-4 cabinetgrotesk">
+        <h1 className="text-3xl xl:text-[6rem] lg:text-[4rem] md:text-[3rem] font-bold text-gray-900 mb-4 cabinetgrotesk">
           Inspiro<span className="text-gray-900"> – website gallery</span>
         </h1>
 
         {/* Subheading */}
-        <p className="text-black mb-8 leading-relaxed font-bold">
+        <p className="text-black mb-8 leading-relaxed text-sm font-semibold bg-gray-100 px-2 py-1 rounded-full">
           Find the best hand-picked website design inspiration. We’re a curated
           website design gallery for creatives, updated daily.
         </p>
