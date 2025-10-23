@@ -28,11 +28,11 @@ mongoose.connect(process.env.MONGO_URI, {
 app.use('/api/companies', companiesRoute);
 
 // ✅ Serve frontend (Vite build output)
-const frontendPath = path.join(__dirname, "../../client/dist");
+const frontendPath = path.join(__dirname, "../client/dist");
 app.use(express.static(frontendPath));
 
 // All other routes → index.html (for React Router)
-app.get("/:path(.*)", (req, res) => {
+app.use((req, res) => {
   res.sendFile(path.join(frontendPath, "index.html"));
 });
 app.listen(3000, () => console.log('Server running on port 3000'));

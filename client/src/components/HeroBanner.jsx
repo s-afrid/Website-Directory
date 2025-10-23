@@ -33,7 +33,7 @@ const HeroBanner = () => {
         </h1>
 
         {/* Subheading */}
-        <p className="text-gray-600 mb-8 leading-relaxed font-semibold">
+        <p className="text-black mb-8 leading-relaxed font-bold">
           Find the best hand-picked website design inspiration. We’re a curated
           website design gallery for creatives, updated daily.
         </p>
