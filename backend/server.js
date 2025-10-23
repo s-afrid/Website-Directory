@@ -35,4 +35,4 @@ app.use(express.static(frontendPath));
 app.use((req, res) => {
   res.sendFile(path.join(frontendPath, "index.html"));
 });
-app.listen(3000, () => console.log('Server running on port 3000'));
+app.listen(process.env.PORT, () => console.log('Server running on port 3000'));
