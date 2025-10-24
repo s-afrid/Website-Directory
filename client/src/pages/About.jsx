@@ -7,10 +7,10 @@ import AboutContent from '../components/AboutContent'
 const About = () => {
   return (
     <div>
-        <Navbar />
+        
         <AboutHeader />
         <AboutContent />
-        <Footer />
+        
     </div>
   )
 }

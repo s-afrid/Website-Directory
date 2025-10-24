@@ -7,15 +7,6 @@ const ContactSection = () => {
     <div className="w-full py-20 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-7xl mx-auto text-center">
         
-        {/* Header */}
-        <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-4">
-          Contact us.
-        </h2>
-        <p className="max-w-3xl mx-auto text-lg text-gray-600 mb-12">
-          We'd love to hear from you! Whether you have questions, feedback, partnership
-          inquiries, or sponsorship opportunities, our team is ready to help.
-        </p>
-
         {/* Contact Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           

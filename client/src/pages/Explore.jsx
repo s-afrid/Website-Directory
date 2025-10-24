@@ -7,10 +7,10 @@ import SearchFilterHeader from '../components/ExploreHeader'
 const Explore = () => {
   return (
     <div>
-      <Navbar />
+      
       <SearchFilterHeader />
       <CardContainer />
-      <Footer />
+      
     </div>
   )
 }

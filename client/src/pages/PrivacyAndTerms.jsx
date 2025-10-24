@@ -5,9 +5,9 @@ import PrivacyPolicy from '../components/PrivacyPolicy'
 const PrivacyAndTerms = () => {
   return (
     <div>
-        <Navbar />
+        
         <PrivacyPolicy />
-        <Footer />
+        
     </div>
   )
 }

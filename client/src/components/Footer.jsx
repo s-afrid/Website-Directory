@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import footerLogo from "../assets/footerLogo.png";
 
 export default function Footer() {
@@ -25,7 +26,6 @@ export default function Footer() {
     <footer className="bg-white border-t border-gray-200 font-[Rubik]">
       <div className="w-full px-6 sm:px-10 lg:px-16 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 items-start">
-          
           {/* 🔹 Logo & Social Section */}
           <div>
             <h2 className="text-2xl font-bold text-gray-900 mb-3">INSPIRO</h2>
@@ -63,25 +63,31 @@ export default function Footer() {
 
           {/* 🔹 Explore Links */}
           <div>
-            <h3 className="text-sm font-semibold text-gray-900 mb-4">
-              Explore
-            </h3>
+           
             <ul className="space-y-2">
               <li>
-                <a
-                  href="#"
+                <Link
+                  to="/explore"
+                  className="font-semibold text-sm hover:text-gray-900 transition"
+                >
+                  Explore
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/sponsor"
                   className="font-semibold text-sm hover:text-gray-900 transition"
                 >
                   Sponsor
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  to="/about"
                   className="font-semibold text-sm hover:text-gray-900 transition"
                 >
                   About
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -93,20 +99,20 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2">
               <li>
-                <a
-                  href="#"
+                <Link
+                  to="/privacyandterm"
                   className="font-semibold text-sm hover:text-gray-900 transition"
                 >
                   Terms & Conditions
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  to="/contact"
                   className="font-semibold text-sm hover:text-gray-900 transition"
                 >
                   Contact Us
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -117,33 +123,32 @@ export default function Footer() {
               Join Our Newsletter
             </h3>
 
-            {/* Newsletter Form */}
             <form
-  onSubmit={handleSubmit(onSubmit)}
-  className="flex flex-col w-full gap-3
-             md:flex-row md:items-center md:bg-gray-50 md:border md:border-gray-200 md:rounded-full md:overflow-hidden md:p-1"
->
-  <input
-    type="email"
-    placeholder="Enter Your Email"
-    {...register("email", {
-      pattern: {
-        value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-        message: "Invalid email format",
-      },
-    })}
-    className="flex-1 min-w-0 bg-white px-4 py-3 text-gray-900 placeholder:text-gray-500 text-sm 
+              onSubmit={handleSubmit(onSubmit)}
+              className="flex flex-col w-full gap-3
+               md:flex-row md:items-center md:bg-gray-50 md:border md:border-gray-200 md:rounded-full md:overflow-hidden md:p-1"
+            >
+              <input
+                type="email"
+                placeholder="Enter Your Email"
+                {...register("email", {
+                  pattern: {
+                    value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                    message: "Invalid email format",
+                  },
+                })}
+                className="flex-1 min-w-0 bg-white px-4 py-3 text-gray-900 placeholder:text-gray-500 text-sm 
                rounded-full outline-none border border-gray-300 focus:ring-1 focus:ring-gray-800
                md:border-none md:bg-transparent md:rounded-none md:focus:ring-0"
-  />
+              />
 
-  <button
-    type="submit"
-    className="shrink-0 bg-gray-900 text-white text-sm font-semibold px-6 py-3 rounded-full hover:bg-black transition"
-  >
-    Subscribe
-  </button>
-</form>
+              <button
+                type="submit"
+                className="shrink-0 bg-gray-900 text-white text-sm font-semibold px-6 py-3 rounded-full hover:bg-black transition"
+              >
+                Subscribe
+              </button>
+            </form>
 
             {/* Error or Success Message */}
             {errors.email && (
