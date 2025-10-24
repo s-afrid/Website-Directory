@@ -33,7 +33,7 @@ const HeroBanner = () => {
         </h1>
 
         {/* Subheading */}
-        <p className="text-black mb-8 leading-relaxed text-sm font-semibold bg-gray-100 px-2 py-1 rounded-full">
+        <p className="text-black mb-8 leading-relaxed text-sm font-semibold">
           Find the best hand-picked website design inspiration. We’re a curated
           website design gallery for creatives, updated daily.
         </p>
@@ -83,7 +83,7 @@ const HeroBanner = () => {
 )}
 
         {/* CTA message */}
-        <p className="text-gray-800 text-[15px] md:text-[17px] font-bold mt-6 bg-gray-100 border-gray-300 rounded-2xl py-1 px-3 w-fit self-center">
+        <p className="text-gray-800 text-[15px] md:text-[17px] font-bold mt-6 w-fit self-center">
           Join 1000+ Inspiring Readers
         </p>
       </div>
