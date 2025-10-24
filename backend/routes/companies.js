@@ -6,7 +6,7 @@ const router = express.Router();
 // GET first 20 companies
 router.get('/', async (req, res) => {
   try {
-    const companies = await WebsiteData.find().limit(20);
+    const companies = await WebsiteData.find().limit(20).lean();
     res.json(companies);
   } catch (err) {
     res.status(500).json({ message: err.message });

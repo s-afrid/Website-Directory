@@ -45,7 +45,8 @@ const Card = ({
         <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
 
         {/* Tags */}
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2 justify-between">
+          <div className="flex flex-wrap gap-1">
           {tags.map((tag, index) => (
             <span
               key={index}
@@ -54,14 +55,19 @@ const Card = ({
               {tag}
             </span>
           ))}
-        </div>
-
-        {/* Price */}
-        {price && (
+          </div>
+          {/* Price */}
+        <div>
+          {price && (
           <span className="text-sm font-semibold text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full w-fit mt-2">
             {price}/Month
           </span>
         )}
+        </div>
+        </div>
+
+        
+        
       </div>
     </div>
   );

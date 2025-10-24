@@ -40,8 +40,6 @@ const CardContainer = () => {
               tags={[
                 company.tags?.industry,
                 company.tags?.type,
-                company.tags?.style,
-                company.tags?.stack,
               ].filter(Boolean)}
               price={company.details?.monRevenue || "N/A"}
               image={company.imageURL || ""}
@@ -56,7 +54,7 @@ const CardContainer = () => {
       {visibleCount < companies.length && (
         <button
           onClick={handleViewMore}
-          className="mt-8 px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors"
+          className="mt-8 px-6 py-3 bg-black text-white rounded-full hover:bg-gray-900 transition-colors"
         >
           View More Examples
         </button>
