@@ -6,7 +6,6 @@ const CardContainer = () => {
   const [visibleCount, setVisibleCount] = useState(9);
   const [loading, setLoading] = useState(false);
 
-  // Fetch companies from backend
   useEffect(() => {
     const fetchCompanies = async () => {
       setLoading(true);
@@ -28,8 +27,8 @@ const CardContainer = () => {
   };
 
   return (
-    <div className="flex flex-col items-center">
-      <div className="flex flex-wrap justify-center gap-4 w-full p-4">
+    <div className="flex flex-col items-center px-4 py-8">
+      <div className="flex flex-wrap justify-center gap-6 w-full max-w-7xl">
         {loading ? (
           <p className="text-gray-500 w-full text-center">Loading...</p>
         ) : (
@@ -57,7 +56,7 @@ const CardContainer = () => {
       {visibleCount < companies.length && (
         <button
           onClick={handleViewMore}
-          className="mt-4 px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors"
+          className="mt-8 px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors"
         >
           View More Examples
         </button>

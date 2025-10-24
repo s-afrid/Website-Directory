@@ -78,7 +78,7 @@ const HeroBanner = () => {
 )}
 {showMessage && (
   <p className="text-green-600 font-semibold mt-2">
-    🎉 You are subscribed!
+    You are subscribed!
   </p>
 )}
 
