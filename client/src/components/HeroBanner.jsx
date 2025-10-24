@@ -21,9 +21,9 @@ const HeroBanner = () => {
 
   return (
     <section
-      className="w-full h-[91vh] bg-cover bg-center flex items-center justify-center"
+      className="w-full bg-cover bg-center flex items-center justify-center"
       style={{
-        backgroundImage: `url(${heroBg})`,
+        
       }}
     >
       <div className="flex flex-col justify-center p-8 md:p-16 text-center rounded-3xl max-w-full self-start">

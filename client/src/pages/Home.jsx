@@ -2,7 +2,8 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import HeroBanner from '../components/HeroBanner'
 import SearchFilter from '../components/SearhFilter'
-import Card from '../components/Card'
+import CardContainer from '../components/CardContainer'
+import Footer from '../components/Footer'
 
 const Home = () => {
     
@@ -11,6 +12,8 @@ const Home = () => {
         <Navbar/>
         <HeroBanner />
         <SearchFilter />
+        <CardContainer />
+        <Footer />
     </div>
   )
 }

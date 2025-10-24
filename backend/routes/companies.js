@@ -3,7 +3,7 @@ import WebsiteData from '../models/website_data.js';
 
 const router = express.Router();
 
-// ✅ GET: fetch first 20 companies
+// GET first 20 companies
 router.get('/', async (req, res) => {
   try {
     const companies = await WebsiteData.find().limit(20);
