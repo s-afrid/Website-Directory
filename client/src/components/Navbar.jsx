@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
   const navItems = [
     { name: "Explore", to: "/explore" },
@@ -13,60 +14,76 @@ const Navbar = () => {
   ];
 
   const baseLinkClass =
-    "text-gray-700 transition-colors duration-200 font-medium tracking-wide";
+    "transition-colors duration-300 font-medium tracking-wide";
   const mobileLinkClass = "py-3 w-full text-center";
 
   return (
-    <nav className="sticky top-0 z-50 bg-white/70 backdrop-blur-lg shadow-sm border-b border-gray-200">
-      {/* Inner container */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <div className="shrink-0">
-            <Link
-              to="/"
-              className="text-2xl font-bold text-gray-900 tracking-tighter"
-            >
-              INSPIRO
-            </Link>
-          </div>
-
-          {/* Desktop Navigation Links */}
-          <div className="hidden md:flex items-center space-x-6 w-auto">
-            {navItems.map((item) => (
+    <nav className="sticky top-0 z-50 shadow-sm border-b border-gray-200 transition-all duration-300">
+      {/* Top Navbar Bar */}
+      <div
+        className={`${
+          isMenuOpen
+            ? "bg-white" // solid white when menu open
+            : "bg-white/70 backdrop-blur-lg" // glassy blur when closed
+        } transition-all duration-300`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            {/* Logo */}
+            <div className="shrink-0">
               <Link
-                key={item.name}
-                to={item.to}
-                className={`${baseLinkClass} ${
-                  item.name === "Submit"
-                    ? "bg-black text-white px-4 py-2 rounded-md hover:bg-gray-800 hover:text-white w-auto"
-                    : "hover:text-gray-900"
-                }`}
+                to="/"
+                className="text-2xl font-bold text-gray-900 tracking-tighter"
               >
-                {item.name}
+                INSPIRO
               </Link>
-            ))}
-          </div>
+            </div>
 
-          {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center">
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-900 focus:outline-none"
-              aria-label="Toggle Menu"
-            >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+            {/* Desktop Links */}
+            <div className="hidden md:flex items-center space-x-6 w-auto">
+              {navItems.map((item) => {
+                const isActive = location.pathname === item.to;
+                return (
+                  <Link
+                    key={item.name}
+                    to={item.to}
+                    className={`${baseLinkClass} ${
+                      item.name === "Submit"
+                        ? "bg-black text-white px-4 py-2 rounded-md hover:bg-gray-800 hover:text-white w-auto"
+                        : `${
+                            isActive
+                              ? "text-green-500 font-semibold"
+                              : "text-gray-700 hover:text-green-500"
+                          }`
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
+                );
+              })}
+            </div>
+
+            {/* Mobile Menu Button */}
+            <div className="md:hidden flex items-center">
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="text-gray-900 focus:outline-none"
+                aria-label="Toggle Menu"
+              >
+                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Dropdown Menu */}
       {isMenuOpen && (
-        <div className="md:hidden absolute top-16 left-0 w-full bg-white/80 backdrop-blur-lg shadow-lg py-2 border-t border-gray-100">
+        <div className="md:hidden absolute top-16 left-0 w-full bg-white shadow-lg py-2 border-t border-gray-100 animate-fadeIn">
           <div className="flex flex-col items-center">
-            {navItems.map((item) =>
-              item.name === "Submit" ? (
+            {navItems.map((item) => {
+              const isActive = location.pathname === item.to;
+              return item.name === "Submit" ? (
                 <Link
                   key={item.name}
                   to={item.to}
@@ -80,12 +97,16 @@ const Navbar = () => {
                   key={item.name}
                   to={item.to}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`${baseLinkClass} ${mobileLinkClass} border-b border-gray-200 hover:text-gray-900`}
+                  className={`${baseLinkClass} ${mobileLinkClass} border-b border-gray-200 ${
+                    isActive
+                      ? "text-green-500 font-semibold"
+                      : "text-gray-700 hover:text-green-500"
+                  }`}
                 >
                   {item.name}
                 </Link>
-              )
-            )}
+              );
+            })}
           </div>
         </div>
       )}

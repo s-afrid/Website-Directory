@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import { useState } from "react";
 import Layout from "./components/Layout";
 
 import Home from "./pages/Home";
@@ -8,7 +9,9 @@ import Explore from "./pages/Explore";
 import PrivacyAndTerms from "./pages/PrivacyAndTerms";
 
 export default function App() {
+   const [showSponsorForm, setShowSponsorForm] = useState(false);
   return (
+    
     <Routes>
       {/* Layout route — Navbar & Footer auto render */}
       <Route path="/" element={<Layout />}>
