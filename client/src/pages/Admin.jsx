@@ -36,7 +36,7 @@ const Admin = () => {
   <Route path="newsletter" element={<Newsletter />} />
   <Route path="sponsors" element={<Sponsor />} />
   <Route path="about" element={<AboutUpdate />} />
-  <Route path="update/admin" element={<AdminUpdate />} />
+  <Route path="updateadmin" element={<AdminUpdate />} />
   <Route path="*" element={<Navigate to="stats" replace />} />
 </Routes>
 
