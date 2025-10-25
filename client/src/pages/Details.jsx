@@ -9,6 +9,7 @@ const Details = () => {
   const [company, setCompany] = useState(null);
 
   useEffect(() => {
+    setCompany(null);
     fetch(`/api/companies/${id}`)
       .then(res => res.json())
       .then(data => setCompany(data))

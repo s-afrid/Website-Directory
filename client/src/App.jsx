@@ -29,7 +29,7 @@ export default function App() {
           <Route path="explore" element={<Explore />} key={window.location.pathname} />
           <Route path="privacyandpolicy" element={<PrivacyAndPolicy />} key={window.location.pathname} />
           <Route path="termsandconditions" element={<TermsAndConditions />} key={window.location.pathname} />
-          <Route path="details/:id" element={<Details />} />
+          <Route path="details/:id" element={<Details />} key={window.location.pathname}/>
         </Route>
       </Routes>
     </SelectedCompanyProvider>
