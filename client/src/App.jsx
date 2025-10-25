@@ -11,13 +11,15 @@ import TermsAndConditions from "./pages/TermsAndConditions.jsx";
 import Details from "./pages/Details";
 
 import { SelectedCompanyProvider } from "./context/SelectedCompanyContext.jsx";
+import { FilterProvider } from "./context/FilterContext.jsx";
 
 export default function App() {
   const [openForm, setOpenForm] = useState(null); // 🔹 controls which popup is open
 
   return (
     <SelectedCompanyProvider>
-      <Routes>
+      <FilterProvider>
+<Routes>
         {/* Layout route — Navbar & Footer auto render */}
         <Route
           path="/"
@@ -32,6 +34,7 @@ export default function App() {
           <Route path="details/:id" element={<Details />} key={window.location.pathname}/>
         </Route>
       </Routes>
+      </FilterProvider>
     </SelectedCompanyProvider>
   );
 }

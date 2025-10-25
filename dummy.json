@@ -1,0 +1,152 @@
+[
+  {
+    "id": "26",
+    "title": "FinTrack",
+    "oneLineDesc": "Track your investments and finances seamlessly.",
+    "url": "https://www.fintrack.com",
+    "imageURL": "https://example.com/images/fintrack.png",
+    "fullDesc": "FinTrack provides real-time dashboards and insights for personal and business finance management.",
+    "isFeatured": true,
+    "isSponsored": false,
+    "dateAdded": "2025-10-25T00:00:00.000Z",
+    "tags": {
+      "industry": "Finance",
+      "type": "Dashboard",
+      "style": "Modern",
+      "stack": "React"
+    },
+    "details": {
+      "founder": "Emma Davis",
+      "year": "2019",
+      "size": "20-50",
+      "location": "New York, NY",
+      "monRevenue": "$120K",
+      "funding": "$1.5M"
+    }
+  },
+  {
+    "id": "27",
+    "title": "EduBlog",
+    "oneLineDesc": "Your daily dose of educational insights.",
+    "url": "https://www.edublog.com",
+    "imageURL": "https://example.com/images/edublog.png",
+    "fullDesc": "EduBlog publishes high-quality content for students and educators, covering tutorials, guides, and research insights.",
+    "isFeatured": false,
+    "isSponsored": true,
+    "dateAdded": "2025-10-25T00:00:00.000Z",
+    "tags": {
+      "industry": "Education",
+      "type": "Blog",
+      "style": "Minimal",
+      "stack": "Vue"
+    },
+    "details": {
+      "founder": "John Lee",
+      "year": "2020",
+      "size": "5-10",
+      "location": "Boston, MA",
+      "monRevenue": "$15K",
+      "funding": "$200K"
+    }
+  },
+  {
+    "id": "28",
+    "title": "TechPortfolio",
+    "oneLineDesc": "Showcase your tech projects in style.",
+    "url": "https://www.techportfolio.com",
+    "imageURL": "https://example.com/images/techportfolio.png",
+    "fullDesc": "TechPortfolio is a platform for developers and tech enthusiasts to showcase their projects with colorful and interactive portfolios.",
+    "isFeatured": true,
+    "isSponsored": true,
+    "dateAdded": "2025-10-25T00:00:00.000Z",
+    "tags": {
+      "industry": "Technology",
+      "type": "Portfolio",
+      "style": "Colorful",
+      "stack": "Angular"
+    },
+    "details": {
+      "founder": "Sara Kim",
+      "year": "2021",
+      "size": "10-20",
+      "location": "San Francisco, CA",
+      "monRevenue": "$80K",
+      "funding": "$500K"
+    }
+  },
+  {
+    "id": "29",
+    "title": "FinancePro",
+    "oneLineDesc": "Advanced financial insights for businesses.",
+    "url": "https://www.financepro.com",
+    "imageURL": "https://example.com/images/financepro.png",
+    "fullDesc": "FinancePro provides real-time analytics and dashboards for businesses to manage investments and operations efficiently.",
+    "isFeatured": false,
+    "isSponsored": false,
+    "dateAdded": "2025-10-25T00:00:00.000Z",
+    "tags": {
+      "industry": "Finance",
+      "type": "Dashboard",
+      "style": "Modern",
+      "stack": "React"
+    },
+    "details": {
+      "founder": "Michael Brown",
+      "year": "2018",
+      "size": "50-100",
+      "location": "Chicago, IL",
+      "monRevenue": "$300K",
+      "funding": "$3M"
+    }
+  },
+  {
+    "id": "30",
+    "title": "LearnSpace",
+    "oneLineDesc": "Explore courses, blogs, and learning resources.",
+    "url": "https://www.learnspace.com",
+    "imageURL": "https://example.com/images/learnspace.png",
+    "fullDesc": "LearnSpace is a platform combining blogs, tutorials, and courses to make learning engaging and minimalistic.",
+    "isFeatured": true,
+    "isSponsored": false,
+    "dateAdded": "2025-10-25T00:00:00.000Z",
+    "tags": {
+      "industry": "Education",
+      "type": "Blog",
+      "style": "Minimal",
+      "stack": "Vue"
+    },
+    "details": {
+      "founder": "Linda Green",
+      "year": "2022",
+      "size": "5-15",
+      "location": "Seattle, WA",
+      "monRevenue": "$25K",
+      "funding": "$100K"
+    }
+  },
+  {
+    "id": "31",
+    "title": "AngularTech",
+    "oneLineDesc": "Create colorful tech portfolios effortlessly.",
+    "url": "https://www.angulartech.com",
+    "imageURL": "https://example.com/images/angulartech.png",
+    "fullDesc": "AngularTech helps developers build vibrant portfolios to display their projects, skills, and achievements online.",
+    "isFeatured": false,
+    "isSponsored": true,
+    "dateAdded": "2025-10-25T00:00:00.000Z",
+    "tags": {
+      "industry": "Technology",
+      "type": "Portfolio",
+      "style": "Colorful",
+      "stack": "Angular"
+    },
+    "details": {
+      "founder": "Kevin White",
+      "year": "2020",
+      "size": "15-30",
+      "location": "Los Angeles, CA",
+      "monRevenue": "$60K",
+      "funding": "$400K"
+    }
+  }
+]

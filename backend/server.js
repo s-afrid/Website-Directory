@@ -27,7 +27,7 @@ mongoose.connect(process.env.MONGO_URI, {
 .catch(err => console.error('❌ MongoDB Connection Failed:', err));
 
 
-// Route to get first 20 entries
+// Route to get entries
 app.use('/api/companies', companiesRoute);
 
 // Use subscriber routes
