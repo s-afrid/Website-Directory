@@ -100,13 +100,19 @@ export default function Footer() {
 
             {/* 🔹 Policy Links */}
             <div>
-              <h3 className="text-sm font-semibold text-gray-900 mb-4">
-                Privacy & Policy
-              </h3>
+              
               <ul className="space-y-2">
                 <li>
                   <Link
-                    to="/privacyandterm"
+                    to="/privacyandpolicy"
+                    className="font-semibold text-sm hover:text-gray-900 transition"
+                  >
+                    Privacy & Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/termsandconditions"
                     className="font-semibold text-sm hover:text-gray-900 transition"
                   >
                     Terms & Conditions

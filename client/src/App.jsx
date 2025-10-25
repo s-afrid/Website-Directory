@@ -6,7 +6,8 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Explore from "./pages/Explore";
-import PrivacyAndTerms from "./pages/PrivacyAndTerms";
+import PrivacyAndPolicy from "./pages/PrivacyAndPolicy";
+import TermsAndConditions from "./pages/TermsAndConditions.jsx";
 import Details from "./pages/Details";
 
 import { SelectedCompanyProvider } from "./context/SelectedCompanyContext.jsx";
@@ -26,7 +27,8 @@ export default function App() {
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
           <Route path="explore" element={<Explore />} />
-          <Route path="privacyandterm" element={<PrivacyAndTerms />} />
+          <Route path="privacyandpolicy" element={<PrivacyAndPolicy />} />
+          <Route path="termsandconditions" element={<TermsAndConditions />} />
           <Route path="details/:id" element={<Details />} />
         </Route>
       </Routes>

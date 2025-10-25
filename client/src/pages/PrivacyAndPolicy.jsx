@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import PrivacyPolicy from '../components/PrivacyPolicy'
-const PrivacyAndTerms = () => {
+const PrivacyAndPolicy = () => {
   return (
     <div>
         
@@ -12,4 +12,4 @@ const PrivacyAndTerms = () => {
   )
 }
 
-export default PrivacyAndTerms
+export default PrivacyAndPolicy
