@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 import SponsorInquiryForm from "./SponsorInquiryForm";
 import SubmitToGetFeatured from "./SubmitForm";
 
-export default function Layout({ openForm, setOpenForm }) {
+export default function Layout({ openForm, setOpenForm, showFooter = true }) {
   const closeForm = () => setOpenForm(null);
 
   return (
@@ -44,8 +44,8 @@ export default function Layout({ openForm, setOpenForm }) {
         <Outlet />
       </main>
 
-      {/* ⚓ Footer always visible */}
-      <Footer />
+      {/* ⚓ Footer optionally visible */}
+      {showFooter && <Footer />}
     </div>
   );
 }

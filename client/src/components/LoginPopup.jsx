@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
+import { useNavigate } from "react-router-dom";
 
 // ✅ Validation schema
 const LoginSchema = Yup.object().shape({
@@ -15,6 +15,7 @@ const LoginSchema = Yup.object().shape({
 
 export default function LoginPopup({ onClose, onSuccess }) {
   const navigate = useNavigate();
+  const [apiError, setApiError] = useState("");
 
   // Disable background scroll when modal is open
   useEffect(() => {
@@ -22,20 +23,19 @@ export default function LoginPopup({ onClose, onSuccess }) {
     return () => (document.body.style.overflow = "auto");
   }, []);
 
-  // Handler for closing the modal and redirecting back
   const handleClose = () => {
-    onClose?.(); // close the modal
-    navigate(-1); // go back to the previous page
+    onClose?.();
+    navigate(-1); // redirect to previous page
   };
 
   return (
     <div
       className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex justify-center items-center"
-      onClick={handleClose} // click outside to close and redirect back
+      onClick={handleClose} // click outside to close
     >
       <div
         className="relative w-[90%] max-w-md bg-white rounded-2xl shadow-2xl p-6 sm:p-10 animate-fadeIn"
-        onClick={(e) => e.stopPropagation()} // stop closing when clicking inside
+        onClick={(e) => e.stopPropagation()} // prevent closing on inner click
       >
         {/* Close Button */}
         <button
@@ -69,18 +69,28 @@ export default function LoginPopup({ onClose, onSuccess }) {
         <Formik
           initialValues={{ email: "", password: "" }}
           validationSchema={LoginSchema}
-          onSubmit={(values, { setSubmitting }) => {
-            setTimeout(() => {
-              if (
-                values.email === "admin@gmail.com" &&
-                values.password === "admin123"
-              ) {
-                onSuccess(); // callback
+          onSubmit={async (values, { setSubmitting }) => {
+            setApiError("");
+            try {
+              const response = await fetch("http://localhost:5000/api/login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(values),
+              });
+
+              const result = await response.json();
+
+              if (!response.ok) {
+                setApiError(result.message || "Invalid credentials");
               } else {
-                alert("Invalid credentials");
+                onSuccess(); // call parent callback
               }
+            } catch (error) {
+              console.error(error);
+              setApiError("Server error. Please try again later.");
+            } finally {
               setSubmitting(false);
-            }, 1000);
+            }
           }}
         >
           {({ isSubmitting }) => (
@@ -92,9 +102,8 @@ export default function LoginPopup({ onClose, onSuccess }) {
                 <Field
                   type="email"
                   name="email"
-                  placeholder="admin@gmail.com"
-                  className="p-3 border rounded-xl focus:ring-indigo-500 focus:border-indigo-500 transition
-                    border-gray-200"
+                  placeholder="Email"
+                  className="p-3 border rounded-xl focus:ring-indigo-500 focus:border-indigo-500 transition border-gray-200"
                 />
                 <ErrorMessage
                   name="email"
@@ -111,8 +120,7 @@ export default function LoginPopup({ onClose, onSuccess }) {
                   type="password"
                   name="password"
                   placeholder="******"
-                  className="p-3 border rounded-xl focus:ring-indigo-500 focus:border-indigo-500 transition
-                    border-gray-200"
+                  className="p-3 border rounded-xl focus:ring-indigo-500 focus:border-indigo-500 transition border-gray-200"
                 />
                 <ErrorMessage
                   name="password"
@@ -120,6 +128,13 @@ export default function LoginPopup({ onClose, onSuccess }) {
                   className="text-red-500 text-xs mt-1 font-medium"
                 />
               </div>
+
+              {/* API Error Message */}
+              {apiError && (
+                <div className="text-center text-red-600 text-sm font-medium">
+                  {apiError}
+                </div>
+              )}
 
               <button
                 type="submit"

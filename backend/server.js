@@ -10,6 +10,9 @@ import subscriberRoutes from './routes/subscriberRoute.js'
 import submissionRoutes from './routes/submissionRoute.js'
 import sponsorRoutes from './routes/sponsorRoute.js'
 
+import authRoutes from "./routes/auth.js";
+import analyticsRoutes from './routes/analytics.js';
+
 dotenv.config();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -38,6 +41,10 @@ app.use("/submission", submissionRoutes);
 
 // Sponsor inquiry route
 app.use("/api/sponsor", sponsorRoutes);
+
+app.use("/api", authRoutes);
+
+app.use('/api/analytics', analyticsRoutes);
 
 // ✅ Serve frontend (Vite build output)
 const frontendPath = path.join(__dirname, "../client/dist");

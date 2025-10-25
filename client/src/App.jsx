@@ -49,36 +49,38 @@ export default function App() {
           />
         )}
 
-        <Routes>
-          <Route
-            path="/"
-            element={<Layout openForm={openForm} setOpenForm={setOpenForm} />}
-          >
-            <Route index element={<Home />} />
-            <Route path="about" element={<About />} />
-            <Route path="contact" element={<Contact />} />
-            <Route path="explore" element={<Explore />} />
-            <Route path="privacyandpolicy" element={<PrivacyAndPolicy />} />
-            <Route path="termsandconditions" element={<TermsAndConditions />} />
-            <Route path="details/:id" element={<Details />} />
+       <Routes>
+  <Route
+    path="/"
+    element={<Layout openForm={openForm} setOpenForm={setOpenForm} />}
+  >
+    <Route index element={<Home />} />
+    <Route path="about" element={<About />} />
+    <Route path="contact" element={<Contact />} />
+    <Route path="explore" element={<Explore />} />
+    <Route path="privacyandpolicy" element={<PrivacyAndPolicy />} />
+    <Route path="termsandconditions" element={<TermsAndConditions />} />
+    <Route path="details/:id" element={<Details />} />
+  </Route>
 
-            {/* Admin Protected Route */}
-            <Route
-              path="admin"
-              element={
-                <ProtectedRoute
-                  isAuthenticated={isAuthenticated}
-                  onLoginRequired={() => {
-                    setRedirectPath("/admin"); // remember the attempted path
-                    setShowLogin(true);
-                  }}
-                >
-                  <Admin />
-                </ProtectedRoute>
-              }
-            />
-          </Route>
-        </Routes>
+  {/* Admin Protected Route (no Layout) */}
+  {/* Admin Protected Route (no Layout) */}
+<Route
+  path="admin/*" // <-- add the wildcard
+  element={
+    <ProtectedRoute
+      isAuthenticated={isAuthenticated}
+      onLoginRequired={() => {
+        setRedirectPath("/admin");
+        setShowLogin(true);
+      }}
+    >
+      <Admin />
+    </ProtectedRoute>
+  }
+/>
+
+</Routes>
       </FilterProvider>
     </SelectedCompanyProvider>
   );
