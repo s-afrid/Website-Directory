@@ -67,9 +67,7 @@ const InputField = ({
       defaultValue={initialValue}
     />
     {errors?.[name] && (
-      <p className="text-xs text-red-500 font-medium">
-        {errors[name].message}
-      </p>
+      <p className="text-xs text-red-500 font-medium">{errors[name].message}</p>
     )}
   </div>
 );
@@ -80,7 +78,9 @@ export default function SubmitToGetFeatured({ closeModal }) {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
   const [submissionStatus, setSubmissionStatus] = useState(null);
+  const [apiMessage, setApiMessage] = useState("");
 
   // Disable background scroll when modal is open
   useEffect(() => {
@@ -88,13 +88,32 @@ export default function SubmitToGetFeatured({ closeModal }) {
     return () => (document.body.style.overflow = "auto");
   }, []);
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     setSubmissionStatus("submitting");
-    console.log("Form Data Submitted:", data);
+    setApiMessage("");
 
-    setTimeout(() => {
+    try {
+      const response = await fetch("/submission", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        setSubmissionStatus("error");
+        setApiMessage(result.message || "Submission failed");
+        return;
+      }
+
       setSubmissionStatus("success");
-    }, 1500);
+      setApiMessage(result.message || "Submission received successfully!");
+    } catch (error) {
+      console.error(error);
+      setSubmissionStatus("error");
+      setApiMessage("Server error. Try again later.");
+    }
   };
 
   return (
@@ -102,12 +121,10 @@ export default function SubmitToGetFeatured({ closeModal }) {
       className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex justify-center items-center"
       onClick={closeModal}
     >
-      {/* Scrollable container */}
       <div
         className="relative w-full h-full flex justify-center items-center overflow-y-auto py-10"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Modal Box */}
         <div className="relative w-[90%] max-w-xl bg-white rounded-2xl shadow-2xl p-6 sm:p-10 border border-gray-100 my-auto animate-fadeIn">
           {/* Close Button */}
           <button
@@ -157,7 +174,7 @@ export default function SubmitToGetFeatured({ closeModal }) {
               type="email"
               placeholder="email23@gmail.com"
               pattern={{
-                value: /^\S+@\S+$/i,
+                value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
                 message: "Invalid email address",
               }}
             />
@@ -168,6 +185,10 @@ export default function SubmitToGetFeatured({ closeModal }) {
               required
               errors={errors}
               placeholder="Twitter Id"
+              pattern={{
+                value: /^@?(\w){1,15}$/,
+                message: "Invalid Twitter handle",
+              }}
             />
             <InputField
               label="Website Url"
@@ -178,7 +199,7 @@ export default function SubmitToGetFeatured({ closeModal }) {
               type="url"
               placeholder="https://"
               pattern={{
-                value: /^(https?:\/\/[^\s]+)/i,
+                value: /^https?:\/\/([\w-]+(\.[\w-]+)+)(\/[\w\-.,@?^=%&:/~+#]*)?$/,
                 message: "Invalid URL format",
               }}
             />
@@ -216,10 +237,16 @@ export default function SubmitToGetFeatured({ closeModal }) {
             </div>
           </form>
 
-          {submissionStatus === "success" && (
-            <div className="mt-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded-xl text-center">
-              <p className="font-bold">Submission Received!</p>
-              <p className="text-sm">Thank you! We’ll review your site shortly.</p>
+          {/* API Success/Error Message */}
+          {submissionStatus && apiMessage && (
+            <div
+              className={`mt-6 p-4 rounded-xl text-center ${
+                submissionStatus === "success"
+                  ? "bg-green-100 border border-green-400 text-green-700"
+                  : "bg-red-100 border border-red-400 text-red-700"
+              }`}
+            >
+              <p className="font-bold">{apiMessage}</p>
             </div>
           )}
         </div>

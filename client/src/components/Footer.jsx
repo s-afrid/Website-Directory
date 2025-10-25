@@ -6,7 +6,8 @@ import SponsorInquiryForm from "./SponsorInquiryForm";
 import SubmitToGetFeatured from "./SubmitForm";
 
 export default function Footer() {
-  const [showMessage, setShowMessage] = useState(false);
+  const [apiMessage, setApiMessage] = useState(""); // stores API message
+  const [isError, setIsError] = useState(false); // tracks if message is error
   const [activeModal, setActiveModal] = useState(null); // "sponsor" | "submit" | null
 
   const closeModal = () => setActiveModal(null);
@@ -20,11 +21,36 @@ export default function Footer() {
     defaultValues: { email: "" },
   });
 
-  const onSubmit = (data) => {
-    console.log("Newsletter signup:", data);
-    reset();
-    setShowMessage(true);
-    setTimeout(() => setShowMessage(false), 3000);
+  const onSubmit = async (data) => {
+    try {
+      setApiMessage("");
+      setIsError(false);
+
+      const response = await fetch("http://localhost:5000/subscribers", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: data.email }),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        setApiMessage(result.message || "Subscription failed");
+        setIsError(true);
+        return;
+      }
+
+      setApiMessage(result.message || "Subscribed successfully!");
+      setIsError(false);
+      reset(); // clear form
+      setTimeout(() => setApiMessage(""), 3000); // hide message after 3s
+    } catch (error) {
+      console.error(error);
+      setApiMessage("Server error. Try again later.");
+      setIsError(true);
+    }
   };
 
   return (
@@ -94,13 +120,11 @@ export default function Footer() {
                     About
                   </Link>
                 </li>
-               
               </ul>
             </div>
 
             {/* 🔹 Policy Links */}
             <div>
-              
               <ul className="space-y-2">
                 <li>
                   <Link
@@ -163,14 +187,15 @@ export default function Footer() {
               </form>
 
               {/* Error or Success Message */}
-              {errors.email && (
-                <p className="text-red-500 text-sm mt-2">
-                  {errors.email.message}
-                </p>
-              )}
-              {showMessage && (
-                <p className="text-green-600 font-semibold mt-2">
-                  You are subscribed!
+              {(errors.email || apiMessage) && (
+                <p
+                  className={`text-sm mt-2 ${
+                    errors.email || isError
+                      ? "text-red-500"
+                      : "text-green-600 font-semibold"
+                  }`}
+                >
+                  {errors.email ? errors.email.message : apiMessage}
                 </p>
               )}
             </div>
@@ -188,10 +213,7 @@ export default function Footer() {
       </footer>
 
       {/* 🔹 Popup Modals */}
-      {activeModal === "sponsor" && (
-        <SponsorInquiryForm closeModal={closeModal} />
-      )}
-      
+      {activeModal === "sponsor" && <SponsorInquiryForm closeModal={closeModal} />}
     </>
   );
 }

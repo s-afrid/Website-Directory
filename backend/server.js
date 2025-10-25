@@ -6,6 +6,9 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 import companiesRoute from './routes/companies.js';
+import subscriberRoutes from './routes/subscriberRoute.js'
+import submissionRoutes from './routes/submissionRoute.js'
+import sponsorRoutes from './routes/sponsorRoute.js'
 
 dotenv.config();
 const __filename = fileURLToPath(import.meta.url);
@@ -26,6 +29,15 @@ mongoose.connect(process.env.MONGO_URI, {
 
 // Route to get first 20 entries
 app.use('/api/companies', companiesRoute);
+
+// Use subscriber routes
+app.use("/subscribers", subscriberRoutes);
+
+// Use submission routes
+app.use("/submission", submissionRoutes);
+
+// Sponsor inquiry route
+app.use("/api/sponsor", sponsorRoutes);
 
 // ✅ Serve frontend (Vite build output)
 const frontendPath = path.join(__dirname, "../client/dist");
