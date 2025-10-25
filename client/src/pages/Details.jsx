@@ -8,7 +8,7 @@ import Footer from '../components/Footer'
 const Details = () => {
   return (
     <div>
-        <Navbar />
+        
         <DetailsHeader />
         <PageDetails />
 
@@ -24,8 +24,8 @@ const Details = () => {
       </div>
     </div>
 
-        <CardContainer />
-        <Footer />
+        <CardContainer batchSize={6}/>
+        
     </div>
   )
 }

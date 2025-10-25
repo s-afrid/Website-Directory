@@ -1,13 +1,17 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import { useSelectedCompany } from "../context/SelectedCompanyContext";
 
 const Card = ({ company }) => {
+  const navigate = useNavigate();
+  const { setSelectedCompany } = useSelectedCompany();
+
   if (!company) return null;
 
   const {
     title = "Untitled",
     imageURL = "",
     oneLineDesc = "",
-    url = "#",
     isFeatured = false,
     isSponsored = false,
     details = {},
@@ -18,15 +22,18 @@ const Card = ({ company }) => {
   const tagList = [tags?.industry, tags?.type].filter(Boolean);
   const badge = isSponsored ? "Sponsored" : isFeatured ? "Featured" : null;
 
+  const handleClick = () => {
+    setSelectedCompany(company); // store clicked company
+    navigate("/details"); // navigate to details page
+  };
+
   return (
-    <div className="flex flex-col w-full sm:w-[45%] md:w-[30%] bg-white rounded-3xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden font-[Rubik] cursor-pointer border border-gray-200">
+    <div
+      onClick={handleClick}
+      className="flex flex-col w-full sm:w-[45%] md:w-[30%] bg-white rounded-3xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden font-[Rubik] cursor-pointer border border-gray-200"
+    >
       {/* Image Section */}
-      <a
-        href={url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="relative w-full h-64 md:h-72 lg:h-80"
-      >
+      <div className="relative w-full h-64 md:h-72 lg:h-80">
         {imageURL ? (
           <img
             src={imageURL}
@@ -37,7 +44,6 @@ const Card = ({ company }) => {
           <div className="w-full h-full bg-gray-300" />
         )}
 
-        {/* Badge */}
         {badge && (
           <div className="absolute top-3 right-3">
             <div
@@ -51,7 +57,7 @@ const Card = ({ company }) => {
             </div>
           </div>
         )}
-      </a>
+      </div>
 
       {/* Info Section */}
       <div className="p-4 flex flex-col gap-3">
