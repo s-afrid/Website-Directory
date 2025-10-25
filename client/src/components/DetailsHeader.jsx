@@ -1,18 +1,21 @@
 import React from "react";
 import { useSelectedCompany } from "../context/SelectedCompanyContext";
 
-const DetailsHeader = () => {
+const DetailsHeader = ({ company }) => {
   const { selectedCompany } = useSelectedCompany();
 
-  if (!selectedCompany) return <div>Loading...</div>;
+  // Use the prop first, fallback to context
+  const currentCompany = company || selectedCompany;
 
-  const { title, oneLineDesc, url, imageURL } = selectedCompany;
+  if (!currentCompany) return <div>Loading...</div>;
+
+  const { title, oneLineDesc, url, imageURL } = currentCompany;
 
   return (
     <div className="min-h-[calc(100vh-64px)] flex flex-col items-center justify-center px-4 sm:px-6 md:px-10 py-6 bg-[#00796B] font-sans text-white">
 
       {/* Header Section */}
-      <div className="text-center mb-4 w-full max-w-3xl flex-shrink-0">
+      <div className="text-center mb-4 w-full max-w-3xl shrink-0">
         <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-1">
           {title}
         </h1>

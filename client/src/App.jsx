@@ -24,7 +24,7 @@ export default function App() {
         <Route path="contact" element={<Contact />} />
         <Route path="explore" element={<Explore />} />
         <Route path="privacyandterm" element={<PrivacyAndTerms />} />
-        <Route path="details" element={<Details />} /> {/* 🔹 Added Details route */}
+        <Route path="details/:id" element={<Details />} /> {/* 🔹 Added Details route */}
       </Route>
     </Routes>
     </SelectedCompanyProvider>

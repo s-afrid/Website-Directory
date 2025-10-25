@@ -23,4 +23,21 @@ router.get('/', async (req, res) => {
   }
 });
 
+// ✅ GET single company by id
+router.get('/:id', async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const company = await WebsiteData.findById(id).lean();
+
+    if (!company) {
+      return res.status(404).json({ message: 'Company not found' });
+    }
+
+    res.json(company);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
 export default router;
