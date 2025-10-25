@@ -1,48 +1,57 @@
-import React from 'react';
-import { useForm, Controller } from 'react-hook-form';
-import { Search, ChevronDown } from 'lucide-react';
+import React, { useContext, useEffect, useRef } from "react";
+import { useForm, Controller } from "react-hook-form";
+import { Search, ChevronDown } from "lucide-react";
+import { FilterContext } from "../context/FilterContext";
 
 const SearchFilterHeader = () => {
-  const { register, control, watch, handleSubmit, setValue } = useForm({
-    defaultValues: {
-      searchQuery: "",
-      // Dropdown fields start with placeholder values
-      industry: "Select Industry",
-      type: "Type",
-      style: "Style",
-      stack: "Stack",
-      // Tab filter field
-      timeframe: "All",
-    },
+  const { filters, setFilters } = useContext(FilterContext);
+
+  const { register, control, watch, handleSubmit, setValue, reset } = useForm({
+    defaultValues: filters,
   });
 
+  const prevValues = useRef(filters); // store previous form values
+
+  // ✅ Update context only when user changes something (watch is stable)
+  useEffect(() => {
+    const currentValues = watch(); // safely inside effect
+    const changed =
+      JSON.stringify(prevValues.current) !== JSON.stringify(currentValues);
+
+    if (changed) {
+      prevValues.current = currentValues;
+      setFilters(currentValues);
+      console.log("✅ Context updated:", currentValues);
+    }
+  }, [watch, setFilters]);
+
+  // ✅ Sync form with context only when context changes externally
+  useEffect(() => {
+    const changed =
+      JSON.stringify(filters) !== JSON.stringify(prevValues.current);
+    if (changed) {
+      reset(filters);
+      prevValues.current = filters;
+    }
+  }, [filters, reset]);
+
+  // --- filter options ---
   const industries = ["Technology", "Healthcare", "Finance", "Education", "E-commerce"];
   const types = ["Landing Page", "Dashboard", "Portfolio", "Blog"];
   const styles = ["Minimal", "Modern", "Colorful", "Dark"];
   const stacks = ["React", "Vue", "Angular", "Next.js"];
   const timeframes = ["All", "Newest", "Relevant", "Popular"];
 
+  // --- handlers ---
   const onSubmit = (data) => {
-    // This is the explicit submission action (e.g., clicking the search icon)
-    console.log("Form Submitted:", data);
+    setFilters(data);
   };
 
-  // Watch ALL form values for real-time filtering/UI updates
-  const formValues = watch();
-
-  // Live filter effect: this runs whenever any form field changes
-  React.useEffect(() => {
-    console.log("Live Filters:", formValues);
-    // In a real application, you would dispatch a fetch action here
-    // to update the list of websites based on the filter criteria in 'formValues'.
-  }, [formValues]);
-
-  // Handler for the time frame tabs (All, Newest, etc.)
   const handleTimeframeChange = (value) => {
-    setValue('timeframe', value);
+    setValue("timeframe", value);
   };
 
-  // Reusable component for the styled dropdown pills
+  // --- reusable select ---
   const FilterPill = ({ name, options, placeholder }) => (
     <div className="relative w-full sm:w-auto">
       <Controller
@@ -51,10 +60,11 @@ const SearchFilterHeader = () => {
         render={({ field }) => (
           <select
             {...field}
-            // Note: The first option should be set as disabled in the return block for the placeholder text to appear correctly when unselected
             className="appearance-none pl-4 pr-10 py-2 border border-gray-300 rounded-lg outline-none focus:ring-2 focus:ring-gray-200 transition cursor-pointer bg-white text-gray-700 w-full text-sm font-medium"
           >
-            <option disabled value={placeholder}>{placeholder}</option>
+            <option disabled value={placeholder}>
+              {placeholder}
+            </option>
             {options.map((option) => (
               <option key={option} value={option}>
                 {option}
@@ -67,23 +77,17 @@ const SearchFilterHeader = () => {
     </div>
   );
 
+  // --- UI ---
   return (
-    // Removed height and background image/overlay styles
     <div className="w-full bg-white py-16 px-4 relative overflow-hidden">
-      
       <div className="max-w-7xl mx-auto w-full z-10">
-        
-        {/* Header Section */}
-        {/* Changed text color to dark gray since there is no background image */}
         <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900 text-center mb-10 leading-tight">
           Inpiro - Website Library
         </h1>
 
-        {/* Search and Filters Form */}
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="flex flex-col gap-6">
-            
-            {/* Search Input Bar (White, Wide, with integrated Dark Button) */}
+            {/* 🔍 Search bar */}
             <div className="w-full max-w-2xl mx-auto bg-white rounded-lg p-1 shadow-lg border border-gray-200">
               <div className="flex items-center">
                 <input
@@ -107,53 +111,33 @@ const SearchFilterHeader = () => {
               </div>
             </div>
 
-            {/* Filter Tabs and Dropdowns */}
+            {/* 🕒 Timeframes + Filters */}
             <div className="flex flex-wrap items-center justify-between gap-3">
+              {/* Timeframes */}
               <div className="flex flex-wrap items-center justify-center gap-3">
-                   {/* Timeframe Tabs (Buttons) */}
-              {timeframes.map((timeframe) => (
-                <button
-                  key={timeframe}
-                  type="button"
-                  onClick={() => handleTimeframeChange(timeframe)}
-                  className={`
-                    px-4 py-2 rounded-lg text-sm font-medium transition duration-200
-                    ${formValues.timeframe === timeframe
-                      ? "bg-teal-500 text-white shadow-md"
-                      : "bg-white text-gray-700 hover:bg-gray-100 border border-gray-300"
-                    }
-                  `}
-                >
-                  {timeframe}
-                </button>
-              ))}
+                {timeframes.map((timeframe) => (
+                  <button
+                    key={timeframe}
+                    type="button"
+                    onClick={() => handleTimeframeChange(timeframe)}
+                    className={`px-4 py-2 rounded-lg text-sm font-medium transition duration-200 ${
+                      watch("timeframe") === timeframe
+                        ? "bg-teal-500 text-white shadow-md"
+                        : "bg-white text-gray-700 hover:bg-gray-100 border border-gray-300"
+                    }`}
+                  >
+                    {timeframe}
+                  </button>
+                ))}
               </div>
-             
 
-              {/* Filter Dropdowns (Styled as White Pills) */}
+              {/* Dropdown Filters */}
               <div className="flex flex-wrap items-center gap-3 w-full justify-center sm:w-auto mt-2 sm:mt-0">
-                <FilterPill 
-                  name="industry" 
-                  options={industries} 
-                  placeholder="Industry" 
-                />
-                <FilterPill 
-                  name="type" 
-                  options={types} 
-                  placeholder="Type" 
-                />
-                <FilterPill 
-                  name="style" 
-                  options={styles} 
-                  placeholder="Style" 
-                />
-                <FilterPill 
-                  name="stack" 
-                  options={stacks} 
-                  placeholder="Stack" 
-                />
+                <FilterPill name="industry" options={industries} placeholder="Industry" />
+                <FilterPill name="type" options={types} placeholder="Type" />
+                <FilterPill name="style" options={styles} placeholder="Style" />
+                <FilterPill name="stack" options={stacks} placeholder="Stack" />
               </div>
-
             </div>
           </div>
         </form>

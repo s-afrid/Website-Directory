@@ -1,152 +1,868 @@
-[
-  {
-    "id": "26",
-    "title": "FinTrack",
-    "oneLineDesc": "Track your investments and finances seamlessly.",
-    "url": "https://www.fintrack.com",
-    "imageURL": "https://example.com/images/fintrack.png",
-    "fullDesc": "FinTrack provides real-time dashboards and insights for personal and business finance management.",
-    "isFeatured": true,
-    "isSponsored": false,
-    "dateAdded": "2025-10-25T00:00:00.000Z",
-    "tags": {
-      "industry": "Finance",
-      "type": "Dashboard",
-      "style": "Modern",
-      "stack": "React"
-    },
-    "details": {
-      "founder": "Emma Davis",
-      "year": "2019",
-      "size": "20-50",
-      "location": "New York, NY",
-      "monRevenue": "$120K",
-      "funding": "$1.5M"
-    }
+[{
+  "_id": {
+    "$oid": "68fa1a221989b68e783b940d"
   },
-  {
-    "id": "27",
-    "title": "EduBlog",
-    "oneLineDesc": "Your daily dose of educational insights.",
-    "url": "https://www.edublog.com",
-    "imageURL": "https://example.com/images/edublog.png",
-    "fullDesc": "EduBlog publishes high-quality content for students and educators, covering tutorials, guides, and research insights.",
-    "isFeatured": false,
-    "isSponsored": true,
-    "dateAdded": "2025-10-25T00:00:00.000Z",
-    "tags": {
-      "industry": "Education",
-      "type": "Blog",
-      "style": "Minimal",
-      "stack": "Vue"
-    },
-    "details": {
-      "founder": "John Lee",
-      "year": "2020",
-      "size": "5-10",
-      "location": "Boston, MA",
-      "monRevenue": "$15K",
-      "funding": "$200K"
-    }
+  "id": "1",
+  "title": "RoboTech AI",
+  "oneLineDesc": "AI-powered robotics for industrial automation.",
+  "url": "https://www.robotecai.com",
+  "imageURL": "https://saaspo.com/cdn-cgi/image/format=avif,quality=90/https://cdn.prod.website-files.com/6399d2d87f63ad4774e11dc2/68fa05a69278d585c14f0a4c_take---2025-10-23T113516.064-(1).jpeg",
+  "fullDesc": "RoboTech AI develops intelligent robots for manufacturing and logistics, integrating AI for predictive maintenance and efficiency.",
+  "isFeatured": true,
+  "isSponsored": false,
+  "dateAdded": "2025-01-15",
+  "tags": {
+    "industry": "Robotics",
+    "type": "Product",
+    "style": "B2B",
+    "stack": "Python, ROS, TensorFlow"
   },
-  {
-    "id": "28",
-    "title": "TechPortfolio",
-    "oneLineDesc": "Showcase your tech projects in style.",
-    "url": "https://www.techportfolio.com",
-    "imageURL": "https://example.com/images/techportfolio.png",
-    "fullDesc": "TechPortfolio is a platform for developers and tech enthusiasts to showcase their projects with colorful and interactive portfolios.",
-    "isFeatured": true,
-    "isSponsored": true,
-    "dateAdded": "2025-10-25T00:00:00.000Z",
-    "tags": {
-      "industry": "Technology",
-      "type": "Portfolio",
-      "style": "Colorful",
-      "stack": "Angular"
-    },
-    "details": {
-      "founder": "Sara Kim",
-      "year": "2021",
-      "size": "10-20",
-      "location": "San Francisco, CA",
-      "monRevenue": "$80K",
-      "funding": "$500K"
-    }
-  },
-  {
-    "id": "29",
-    "title": "FinancePro",
-    "oneLineDesc": "Advanced financial insights for businesses.",
-    "url": "https://www.financepro.com",
-    "imageURL": "https://example.com/images/financepro.png",
-    "fullDesc": "FinancePro provides real-time analytics and dashboards for businesses to manage investments and operations efficiently.",
-    "isFeatured": false,
-    "isSponsored": false,
-    "dateAdded": "2025-10-25T00:00:00.000Z",
-    "tags": {
-      "industry": "Finance",
-      "type": "Dashboard",
-      "style": "Modern",
-      "stack": "React"
-    },
-    "details": {
-      "founder": "Michael Brown",
-      "year": "2018",
-      "size": "50-100",
-      "location": "Chicago, IL",
-      "monRevenue": "$300K",
-      "funding": "$3M"
-    }
-  },
-  {
-    "id": "30",
-    "title": "LearnSpace",
-    "oneLineDesc": "Explore courses, blogs, and learning resources.",
-    "url": "https://www.learnspace.com",
-    "imageURL": "https://example.com/images/learnspace.png",
-    "fullDesc": "LearnSpace is a platform combining blogs, tutorials, and courses to make learning engaging and minimalistic.",
-    "isFeatured": true,
-    "isSponsored": false,
-    "dateAdded": "2025-10-25T00:00:00.000Z",
-    "tags": {
-      "industry": "Education",
-      "type": "Blog",
-      "style": "Minimal",
-      "stack": "Vue"
-    },
-    "details": {
-      "founder": "Linda Green",
-      "year": "2022",
-      "size": "5-15",
-      "location": "Seattle, WA",
-      "monRevenue": "$25K",
-      "funding": "$100K"
-    }
-  },
-  {
-    "id": "31",
-    "title": "AngularTech",
-    "oneLineDesc": "Create colorful tech portfolios effortlessly.",
-    "url": "https://www.angulartech.com",
-    "imageURL": "https://example.com/images/angulartech.png",
-    "fullDesc": "AngularTech helps developers build vibrant portfolios to display their projects, skills, and achievements online.",
-    "isFeatured": false,
-    "isSponsored": true,
-    "dateAdded": "2025-10-25T00:00:00.000Z",
-    "tags": {
-      "industry": "Technology",
-      "type": "Portfolio",
-      "style": "Colorful",
-      "stack": "Angular"
-    },
-    "details": {
-      "founder": "Kevin White",
-      "year": "2020",
-      "size": "15-30",
-      "location": "Los Angeles, CA",
-      "monRevenue": "$60K",
-      "funding": "$400K"
-    }
+  "details": {
+    "founder": "Jane Smith",
+    "year": "2019",
+    "size": "50-100",
+    "location": "San Francisco, USA",
+    "monRevenue": "$120K",
+    "funding": "$2M"
   }
-]
+},
+{
+  "_id": {
+    "$oid": "68fa1a221989b68e783b940e"
+  },
+  "id": "2",
+  "title": "GreenByte Solutions",
+  "oneLineDesc": "Sustainable software solutions for enterprises.",
+  "url": "https://www.greenbyte.com",
+  "imageURL": "https://saaspo.com/cdn-cgi/image/format=avif,quality=90/https://cdn.prod.website-files.com/6399d2d87f63ad4774e11dc2/68fa05a69278d585c14f0a46_take---2025-10-23T113457.944-(1).jpeg",
+  "fullDesc": "GreenByte Solutions offers energy-efficient software and consulting services to help businesses reduce carbon footprint and optimize operations.",
+  "isFeatured": false,
+  "isSponsored": true,
+  "dateAdded": "2025-03-22",
+  "tags": {
+    "industry": "Software",
+    "type": "Service",
+    "style": "B2B",
+    "stack": "Java, AWS, Kubernetes"
+  },
+  "details": {
+    "founder": "Ali Khan",
+    "year": "2018",
+    "size": "20-50",
+    "location": "Berlin, Germany",
+    "monRevenue": "$80K",
+    "funding": "$500K"
+  }
+},
+{
+  "_id": {
+    "$oid": "68fa1a221989b68e783b940f"
+  },
+  "id": "3",
+  "title": "MedAI Diagnostics",
+  "oneLineDesc": "AI-driven medical imaging analysis.",
+  "url": "https://www.medai.com",
+  "imageURL": "https://saaspo.com/cdn-cgi/image/format=avif,quality=90/https://cdn.prod.website-files.com/639997ad49dddb11d0c0efba/68f1efc42b957a2d587e2c12_framer-screen%20(1).jpeg",
+  "fullDesc": "MedAI Diagnostics provides AI algorithms for faster and more accurate medical imaging analysis, helping radiologists and hospitals improve diagnostics.",
+  "isFeatured": true,
+  "isSponsored": false,
+  "dateAdded": "2024-11-10",
+  "tags": {
+    "industry": "Healthcare",
+    "type": "Product",
+    "style": "B2B",
+    "stack": "Python, PyTorch, React"
+  },
+  "details": {
+    "founder": "Dr. Lisa Wong",
+    "year": "2020",
+    "size": "30-60",
+    "location": "Toronto, Canada",
+    "monRevenue": "$150K",
+    "funding": "$1.5M"
+  }
+},
+{
+  "_id": {
+    "$oid": "68fa1a221989b68e783b9410"
+  },
+  "id": "4",
+  "title": "FinEdge",
+  "oneLineDesc": "Next-gen fintech platform for SMEs.",
+  "url": "https://www.finedge.com",
+  "imageURL": "https://saaspo.com/cdn-cgi/image/format=avif,quality=90/https://cdn.prod.website-files.com/6399d2d87f63ad4774e11dc2/68fa05a59278d585c14f0a33_take---2025-10-23T113613.895-copy-(1).jpeg",
+  "fullDesc": "FinEdge offers digital banking solutions and analytics for small and medium enterprises, enabling seamless financial management.",
+  "isFeatured": false,
+  "isSponsored": false,
+  "dateAdded": "2025-02-05",
+  "tags": {
+    "industry": "Fintech",
+    "type": "Platform",
+    "style": "B2B",
+    "stack": "Node.js, React, MongoDB"
+  },
+  "details": {
+    "founder": "Rohan Mehta",
+    "year": "2017",
+    "size": "40-80",
+    "location": "Mumbai, India",
+    "monRevenue": "$100K",
+    "funding": "$1M"
+  }
+},
+{
+  "_id": {
+    "$oid": "68fa1a221989b68e783b9411"
+  },
+  "id": "5",
+  "title": "EduNext",
+  "oneLineDesc": "AI-assisted e-learning platform.",
+  "url": "https://www.edunext.com",
+  "imageURL": "https://saaspo.com/cdn-cgi/image/format=avif,quality=90/https://cdn.prod.website-files.com/6399d2d87f63ad4774e11dc2/68fa05a59278d585c14f0a2f_take---2025-10-23T113537.553-(1).jpeg",
+  "fullDesc": "EduNext leverages AI to provide personalized learning paths, assessment tools, and skill tracking for students and professionals.",
+  "isFeatured": true,
+  "isSponsored": true,
+  "dateAdded": "2025-04-01",
+  "tags": {
+    "industry": "EdTech",
+    "type": "Platform",
+    "style": "B2C",
+    "stack": "Python, Django, Vue.js"
+  },
+  "details": {
+    "founder": "Sophia Lee",
+    "year": "2021",
+    "size": "25-50",
+    "location": "Singapore",
+    "monRevenue": "$50K",
+    "funding": "$700K"
+  }
+},
+{
+  "_id": {
+    "$oid": "68fa1a221989b68e783b9412"
+  },
+  "id": "6",
+  "title": "AutoDrive Systems",
+  "oneLineDesc": "Autonomous vehicle software solutions.",
+  "url": "https://www.autodrive.com",
+  "imageURL": "https://saaspo.com/cdn-cgi/image/format=avif,quality=90/https://cdn.prod.website-files.com/6399d2d87f63ad4774e11dc2/68fa05a69278d585c14f0a49_take---2025-10-23T113704.052-(1).jpeg",
+  "fullDesc": "AutoDrive Systems develops self-driving software for commercial and private vehicles, focusing on safety, efficiency, and AI-powered navigation.",
+  "isFeatured": true,
+  "isSponsored": false,
+  "dateAdded": "2024-12-12",
+  "tags": {
+    "industry": "Automotive",
+    "type": "Product",
+    "style": "B2B",
+    "stack": "C++, ROS, OpenCV"
+  },
+  "details": {
+    "founder": "Carlos Diaz",
+    "year": "2016",
+    "size": "100-200",
+    "location": "Detroit, USA",
+    "monRevenue": "$250K",
+    "funding": "$5M"
+  }
+},
+{
+  "_id": {
+    "$oid": "68fa1a221989b68e783b9413"
+  },
+  "id": "7",
+  "title": "AeroSense",
+  "oneLineDesc": "Drone technology for agriculture monitoring.",
+  "url": "https://www.aerosense.com",
+  "imageURL": "https://saaspo.com/cdn-cgi/image/format=avif,quality=90/https://cdn.prod.website-files.com/6399d2d87f63ad4774e11dc2/68f69090164b2278f2535542_take---2025-10-20T203430.674-(1).jpeg",
+  "fullDesc": "AeroSense builds drones equipped with AI sensors for precision agriculture, crop monitoring, and resource optimization.",
+  "isFeatured": false,
+  "isSponsored": false,
+  "dateAdded": "2025-05-18",
+  "tags": {
+    "industry": "Agritech",
+    "type": "Product",
+    "style": "B2B",
+    "stack": "Python, Arduino, React"
+  },
+  "details": {
+    "founder": "Emma Thompson",
+    "year": "2018",
+    "size": "30-70",
+    "location": "Sydney, Australia",
+    "monRevenue": "$90K",
+    "funding": "$800K"
+  }
+},
+{
+  "_id": {
+    "$oid": "68fa1a221989b68e783b9414"
+  },
+  "id": "8",
+  "title": "SmartHomeX",
+  "oneLineDesc": "IoT-based smart home automation.",
+  "url": "https://www.smarthomex.com",
+  "imageURL": "https://saaspo.com/cdn-cgi/image/format=avif,quality=90/https://cdn.prod.website-files.com/6399d2d87f63ad4774e11dc2/68f69090164b2278f253553f_screencapture-chutes-ai-2025-10-20-20_36_26-copy-(1).jpeg",
+  "fullDesc": "SmartHomeX offers connected home devices, automated routines, and energy optimization through a centralized IoT platform.",
+  "isFeatured": true,
+  "isSponsored": true,
+  "dateAdded": "2025-03-30",
+  "tags": {
+    "industry": "IoT",
+    "type": "Product",
+    "style": "B2C",
+    "stack": "Node.js, Raspberry Pi, React Native"
+  },
+  "details": {
+    "founder": "Liam Johnson",
+    "year": "2019",
+    "size": "60-120",
+    "location": "London, UK",
+    "monRevenue": "$200K",
+    "funding": "$2.5M"
+  }
+},
+{
+  "_id": {
+    "$oid": "68fa1a221989b68e783b9415"
+  },
+  "id": "9",
+  "title": "CyberShield",
+  "oneLineDesc": "Next-gen cybersecurity solutions.",
+  "url": "https://www.cybershield.com",
+  "imageURL": "https://saaspo.com/cdn-cgi/image/format=avif,quality=90/https://cdn.prod.website-files.com/6399d2d87f63ad4774e11dc2/68f69090164b2278f253553c_take---2025-10-20T203648.775-copy-(1).jpeg",
+  "fullDesc": "CyberShield provides AI-driven cybersecurity tools, threat detection, and incident response platforms for enterprises.",
+  "isFeatured": false,
+  "isSponsored": false,
+  "dateAdded": "2025-02-28",
+  "tags": {
+    "industry": "Cybersecurity",
+    "type": "Service",
+    "style": "B2B",
+    "stack": "Python, Java, AWS"
+  },
+  "details": {
+    "founder": "Nina Patel",
+    "year": "2015",
+    "size": "80-150",
+    "location": "New York, USA",
+    "monRevenue": "$300K",
+    "funding": "$4M"
+  }
+},
+{
+  "_id": {
+    "$oid": "68fa1a221989b68e783b9416"
+  },
+  "id": "10",
+  "title": "Foodify",
+  "oneLineDesc": "AI-powered restaurant recommendation app.",
+  "url": "https://www.foodify.com",
+  "imageURL": "https://saaspo.com/cdn-cgi/image/format=avif,quality=90/https://cdn.prod.website-files.com/6399d2d87f63ad4774e11dc2/68f69090164b2278f2535545_take---2025-10-20T203406.266-(1).jpeg",
+  "fullDesc": "Foodify uses AI to recommend restaurants, dishes, and personalized menus to users based on preferences, location, and dietary restrictions.",
+  "isFeatured": true,
+  "isSponsored": false,
+  "dateAdded": "2025-04-20",
+  "tags": {
+    "industry": "FoodTech",
+    "type": "App",
+    "style": "B2C",
+    "stack": "React Native, Node.js, MongoDB"
+  },
+  "details": {
+    "founder": "Arjun Rao",
+    "year": "2020",
+    "size": "15-40",
+    "location": "Bangalore, India",
+    "monRevenue": "$60K",
+    "funding": "$600K"
+  }
+},
+{
+  "_id": {
+    "$oid": "68fa1a221989b68e783b9417"
+  },
+  "id": "11",
+  "title": "BioNanoTech",
+  "oneLineDesc": "Nanotechnology solutions for biotech.",
+  "url": "https://www.bionanotech.com",
+  "imageURL": "https://saaspo.com/cdn-cgi/image/format=avif,quality=90/https://cdn.prod.website-files.com/639997ad49dddb11d0c0efba/68f105729fe534094097eb91_twohands-screen%20(1).jpeg",
+  "fullDesc": "BioNanoTech develops nanoscale solutions for biotechnology, enhancing drug delivery, diagnostics, and bioengineering applications.",
+  "isFeatured": false,
+  "isSponsored": true,
+  "dateAdded": "2025-01-05",
+  "tags": {
+    "industry": "Biotech",
+    "type": "Product",
+    "style": "B2B",
+    "stack": "Python, MATLAB, C++"
+  },
+  "details": {
+    "founder": "Sophia Martinez",
+    "year": "2017",
+    "size": "40-90",
+    "location": "Boston, USA",
+    "monRevenue": "$180K",
+    "funding": "$3M"
+  }
+},
+{
+  "_id": {
+    "$oid": "68fa1a221989b68e783b9418"
+  },
+  "id": "12",
+  "title": "TravelMate",
+  "oneLineDesc": "Smart travel planning and booking platform.",
+  "url": "https://www.travelmate.com",
+  "imageURL": "https://saaspo.com/cdn-cgi/image/format=avif,quality=90/https://cdn.prod.website-files.com/6399d2d87f63ad4774e11dc2/68f69090164b2278f2535548_take---2025-10-20T203457.681-(1).jpeg",
+  "fullDesc": "TravelMate uses AI to suggest destinations, plan itineraries, and manage bookings for travelers globally, making travel seamless and personalized.",
+  "isFeatured": true,
+  "isSponsored": false,
+  "dateAdded": "2025-03-10",
+  "tags": {
+    "industry": "TravelTech",
+    "type": "Platform",
+    "style": "B2C",
+    "stack": "Python, Django, React"
+  },
+  "details": {
+    "founder": "Lucas Wang",
+    "year": "2019",
+    "size": "20-60",
+    "location": "Hong Kong",
+    "monRevenue": "$70K",
+    "funding": "$900K"
+  }
+},
+{
+  "_id": {
+    "$oid": "68fa1a221989b68e783b9419"
+  },
+  "id": "13",
+  "title": "CleanEnergy Hub",
+  "oneLineDesc": "Renewable energy management platform.",
+  "url": "https://www.cleanenergyhub.com",
+  "imageURL": "https://saaspo.com/cdn-cgi/image/format=avif,quality=90/https://cdn.prod.website-files.com/6399d2d87f63ad4774e11dc2/68f0f35d433b2107d68a22c3_take---2025-10-16T142645.032-(1).jpeg",
+  "fullDesc": "CleanEnergy Hub enables energy companies to monitor and optimize renewable energy sources with IoT, analytics, and AI insights.",
+  "isFeatured": false,
+  "isSponsored": false,
+  "dateAdded": "2024-11-22",
+  "tags": {
+    "industry": "EnergyTech",
+    "type": "Platform",
+    "style": "B2B",
+    "stack": "Java, Spring Boot, React"
+  },
+  "details": {
+    "founder": "Fatima Ali",
+    "year": "2016",
+    "size": "50-100",
+    "location": "Dubai, UAE",
+    "monRevenue": "$220K",
+    "funding": "$3.5M"
+  }
+},
+{
+  "_id": {
+    "$oid": "68fa1a221989b68e783b941a"
+  },
+  "id": "14",
+  "title": "FitAI",
+  "oneLineDesc": "Personalized AI fitness coaching app.",
+  "url": "https://www.fitai.com",
+  "imageURL": "https://saaspo.com/cdn-cgi/image/format=avif,quality=90/https://cdn.prod.website-files.com/6399d2d87f63ad4774e11dc2/68ed0789d491930f63b4bf36_take---2025-10-13T150351.197-(1).jpeg",
+  "fullDesc": "FitAI offers users AI-driven workout plans, nutrition guidance, and health tracking for better fitness outcomes.",
+  "isFeatured": true,
+  "isSponsored": true,
+  "dateAdded": "2025-02-12",
+  "tags": {
+    "industry": "HealthTech",
+    "type": "App",
+    "style": "B2C",
+    "stack": "React Native, Node.js, Python"
+  },
+  "details": {
+    "founder": "Ella Brown",
+    "year": "2021",
+    "size": "15-30",
+    "location": "Los Angeles, USA",
+    "monRevenue": "$40K",
+    "funding": "$500K"
+  }
+},
+{
+  "_id": {
+    "$oid": "68fa1a221989b68e783b941b"
+  },
+  "id": "15",
+  "title": "SmartRetail AI",
+  "oneLineDesc": "AI solutions for retail optimization.",
+  "url": "https://www.smartretail.ai",
+  "imageURL": "https://saaspo.com/cdn-cgi/image/format=avif,quality=90/https://cdn.prod.website-files.com/6399d2d87f63ad4774e11dc2/68e770154c960fe523f8bd45_take---2025-10-09T091821.712-(1).jpeg",
+  "fullDesc": "SmartRetail AI helps retailers optimize inventory, sales, and customer engagement through AI analytics and insights.",
+  "isFeatured": false,
+  "isSponsored": false,
+  "dateAdded": "2025-03-05",
+  "tags": {
+    "industry": "RetailTech",
+    "type": "Service",
+    "style": "B2B",
+    "stack": "Python, Flask, React"
+  },
+  "details": {
+    "founder": "Mohammed Yusuf",
+    "year": "2018",
+    "size": "60-120",
+    "location": "Dubai, UAE",
+    "monRevenue": "$150K",
+    "funding": "$2M"
+  }
+},
+{
+  "_id": {
+    "$oid": "68fa1a221989b68e783b941c"
+  },
+  "id": "16",
+  "title": "NanoMed Solutions",
+  "oneLineDesc": "Advanced nanotech for medical research.",
+  "url": "https://www.nanomed.com",
+  "imageURL": "https://saaspo.com/cdn-cgi/image/format=avif,quality=90/https://cdn.prod.website-files.com/6399d2d87f63ad4774e11dc2/68e39badaed0c1afa840e222_take---2025-10-06T113241.964-(1).jpeg",
+  "fullDesc": "NanoMed Solutions develops nanotechnology solutions for drug delivery, tissue engineering, and medical research innovations.",
+  "isFeatured": true,
+  "isSponsored": false,
+  "dateAdded": "2025-01-20",
+  "tags": {
+    "industry": "Biotech",
+    "type": "Product",
+    "style": "B2B",
+    "stack": "C++, MATLAB, Python"
+  },
+  "details": {
+    "founder": "Dr. Hannah Lee",
+    "year": "2017",
+    "size": "40-80",
+    "location": "Seoul, South Korea",
+    "monRevenue": "$200K",
+    "funding": "$3M"
+  }
+},
+{
+  "_id": {
+    "$oid": "68fa1a221989b68e783b941d"
+  },
+  "id": "17",
+  "title": "GreenFleet AI",
+  "oneLineDesc": "AI-driven fleet management for electric vehicles.",
+  "url": "https://www.greenfleet.ai",
+  "imageURL": "https://saaspo.com/cdn-cgi/image/format=avif,quality=90/https://cdn.prod.website-files.com/6399d2d87f63ad4774e11dc2/68e39badaed0c1afa840e21f_take---2025-10-06T113322.705-(1).jpeg",
+  "fullDesc": "GreenFleet AI optimizes routes, energy usage, and predictive maintenance for electric vehicle fleets.",
+  "isFeatured": false,
+  "isSponsored": true,
+  "dateAdded": "2025-04-18",
+  "tags": {
+    "industry": "AutomotiveTech",
+    "type": "Platform",
+    "style": "B2B",
+    "stack": "Python, Node.js, React"
+  },
+  "details": {
+    "founder": "Ivan Petrov",
+    "year": "2020",
+    "size": "50-100",
+    "location": "Moscow, Russia",
+    "monRevenue": "$120K",
+    "funding": "$1.2M"
+  }
+},
+{
+  "_id": {
+    "$oid": "68fa1a221989b68e783b941e"
+  },
+  "id": "18",
+  "title": "SmartAgro",
+  "oneLineDesc": "IoT and AI solutions for smart farming.",
+  "url": "https://www.smartagro.com",
+  "imageURL": "https://saaspo.com/cdn-cgi/image/format=avif,quality=90/https://cdn.prod.website-files.com/6399d2d87f63ad4774e11dc2/68e39b9242fd4571a59b4f2c_take---2025-10-06T113107.813-(1).jpeg",
+  "fullDesc": "SmartAgro provides IoT sensors and AI analytics to improve crop yield, soil health, and irrigation efficiency.",
+  "isFeatured": true,
+  "isSponsored": false,
+  "dateAdded": "2025-03-08",
+  "tags": {
+    "industry": "Agritech",
+    "type": "Product",
+    "style": "B2B",
+    "stack": "Python, Arduino, Django"
+  },
+  "details": {
+    "founder": "Marta Garcia",
+    "year": "2018",
+    "size": "30-70",
+    "location": "Madrid, Spain",
+    "monRevenue": "$100K",
+    "funding": "$900K"
+  }
+},
+{
+  "_id": {
+    "$oid": "68fa1a221989b68e783b941f"
+  },
+  "id": "19",
+  "title": "EduSmart",
+  "oneLineDesc": "AI tutoring and learning analytics platform.",
+  "url": "https://www.edusmart.com",
+  "imageURL": "https://saaspo.com/cdn-cgi/image/format=avif,quality=90/https://cdn.prod.website-files.com/639997ad49dddb11d0c0efba/68f1efc42b957a2d587e2c12_framer-screen%20(1).jpeg",
+  "fullDesc": "EduSmart uses AI to provide personalized learning recommendations and performance analytics for students worldwide.",
+  "isFeatured": false,
+  "isSponsored": true,
+  "dateAdded": "2025-02-25",
+  "tags": {
+    "industry": "EdTech",
+    "type": "Platform",
+    "style": "B2C",
+    "stack": "Python, React, Node.js"
+  },
+  "details": {
+    "founder": "Sophie Muller",
+    "year": "2020",
+    "size": "25-60",
+    "location": "Berlin, Germany",
+    "monRevenue": "$60K",
+    "funding": "$700K"
+  }
+},
+{
+  "_id": {
+    "$oid": "68fa1a221989b68e783b9420"
+  },
+  "id": "20",
+  "title": "HealthTrack AI",
+  "oneLineDesc": "AI-based health monitoring wearable.",
+  "url": "https://www.healthtrack.ai",
+  "imageURL": "https://saaspo.com/cdn-cgi/image/format=avif,quality=90/https://cdn.prod.website-files.com/6399d2d87f63ad4774e11dc2/68dcf81074b8cc4f83747b61_take---2025-10-01T104318.544-(1).jpeg",
+  "fullDesc": "HealthTrack AI develops wearable devices that monitor vital signs and predict potential health risks using AI.",
+  "isFeatured": true,
+  "isSponsored": false,
+  "dateAdded": "2025-01-28",
+  "tags": {
+    "industry": "HealthTech",
+    "type": "Product",
+    "style": "B2C",
+    "stack": "Python, C++, React Native"
+  },
+  "details": {
+    "founder": "David Kim",
+    "year": "2019",
+    "size": "20-50",
+    "location": "Seoul, South Korea",
+    "monRevenue": "$90K",
+    "funding": "$1M"
+  }
+},
+{
+  "_id": {
+    "$oid": "68fa1a221989b68e783b9421"
+  },
+  "id": "21",
+  "title": "FinSmart",
+  "oneLineDesc": "AI-driven financial advisor platform.",
+  "url": "https://www.finsmart.com",
+  "imageURL": "https://saaspo.com/cdn-cgi/image/format=avif,quality=90/https://cdn.prod.website-files.com/6399d2d87f63ad4774e11dc2/68dcf81074b8cc4f83747b5e_take---2025-10-01T104156.726-(1).jpeg",
+  "fullDesc": "FinSmart offers AI-powered insights, investment recommendations, and portfolio management tools for individual investors.",
+  "isFeatured": false,
+  "isSponsored": true,
+  "dateAdded": "2025-04-05",
+  "tags": {
+    "industry": "Fintech",
+    "type": "Platform",
+    "style": "B2C",
+    "stack": "Python, Django, React"
+  },
+  "details": {
+    "founder": "Rajesh Sharma",
+    "year": "2020",
+    "size": "25-60",
+    "location": "Mumbai, India",
+    "monRevenue": "$70K",
+    "funding": "$800K"
+  }
+},
+{
+  "_id": {
+    "$oid": "68fa1a221989b68e783b9422"
+  },
+  "id": "22",
+  "title": "CleanWater Tech",
+  "oneLineDesc": "Smart water purification and monitoring solutions.",
+  "url": "https://www.cleanwatertech.com",
+  "imageURL": "https://saaspo.com/cdn-cgi/image/format=avif,quality=90/https://cdn.prod.website-files.com/6399d2d87f63ad4774e11dc2/68d03ad130213e50efddae5d_take---2025-09-21T184902.812-(1).jpeg",
+  "fullDesc": "CleanWater Tech uses IoT and AI to monitor and purify water supplies, ensuring safe and sustainable water management.",
+  "isFeatured": true,
+  "isSponsored": false,
+  "dateAdded": "2025-03-12",
+  "tags": {
+    "industry": "WaterTech",
+    "type": "Product",
+    "style": "B2B",
+    "stack": "Python, Arduino, React"
+  },
+  "details": {
+    "founder": "Anna Novak",
+    "year": "2017",
+    "size": "40-90",
+    "location": "Warsaw, Poland",
+    "monRevenue": "$110K",
+    "funding": "$1.5M"
+  }
+},
+{
+  "_id": {
+    "$oid": "68fa1a221989b68e783b9423"
+  },
+  "id": "23",
+  "title": "TravelGuru",
+  "oneLineDesc": "AI-powered travel concierge app.",
+  "url": "https://www.travelguru.com",
+  "imageURL": "https://saaspo.com/cdn-cgi/image/format=avif,quality=90/https://cdn.prod.website-files.com/6399d2d87f63ad4774e11dc2/68d03ad130213e50efddae72_take---2025-09-21T184836.247-(1).jpeg",
+  "fullDesc": "TravelGuru provides AI-assisted recommendations, bookings, and travel planning services to users worldwide.",
+  "isFeatured": false,
+  "isSponsored": true,
+  "dateAdded": "2025-02-20",
+  "tags": {
+    "industry": "TravelTech",
+    "type": "App",
+    "style": "B2C",
+    "stack": "Node.js, React, MongoDB"
+  },
+  "details": {
+    "founder": "Mia Chen",
+    "year": "2019",
+    "size": "20-50",
+    "location": "Taipei, Taiwan",
+    "monRevenue": "$60K",
+    "funding": "$600K"
+  }
+},
+{
+  "_id": {
+    "$oid": "68fa1a221989b68e783b9424"
+  },
+  "id": "24",
+  "title": "FoodChain AI",
+  "oneLineDesc": "Supply chain optimization for food industry.",
+  "url": "https://www.foodchain.ai",
+  "imageURL": "https://saaspo.com/cdn-cgi/image/format=avif,quality=90/https://cdn.prod.website-files.com/6399d2d87f63ad4774e11dc2/68bb0153da24da8670488671_take---2025-09-05T162428.576-copy-(1).jpeg",
+  "fullDesc": "FoodChain AI optimizes logistics, inventory, and delivery for restaurants and food suppliers using AI analytics.",
+  "isFeatured": true,
+  "isSponsored": false,
+  "dateAdded": "2025-04-10",
+  "tags": {
+    "industry": "FoodTech",
+    "type": "Service",
+    "style": "B2B",
+    "stack": "Python, Django, React"
+  },
+  "details": {
+    "founder": "Luca Rossi",
+    "year": "2018",
+    "size": "30-70",
+    "location": "Rome, Italy",
+    "monRevenue": "$120K",
+    "funding": "$1.2M"
+  }
+},
+{
+  "_id": {
+    "$oid": "68fa1a221989b68e783b9425"
+  },
+  "id": "25",
+  "title": "AI Legal Advisor",
+  "oneLineDesc": "AI-powered legal consultation platform.",
+  "url": "https://www.ailegaladvisor.com",
+  "imageURL": "https://saaspo.com/cdn-cgi/image/format=avif,quality=90/https://cdn.prod.website-files.com/6399d2d87f63ad4774e11dc2/68a193d64da8a1bb0352ec2f_take---2025-08-17T093301.206-(1).jpeg",
+  "fullDesc": "AI Legal Advisor provides automated legal guidance, document analysis, and consultation for individuals and businesses.",
+  "isFeatured": false,
+  "isSponsored": true,
+  "dateAdded": "2025-03-18",
+  "tags": {
+    "industry": "LegalTech",
+    "type": "Platform",
+    "style": "B2C",
+    "stack": "Python, React, Node.js"
+  },
+  "details": {
+    "founder": "Oliver Smith",
+    "year": "2020",
+    "size": "20-50",
+    "location": "London, UK",
+    "monRevenue": "$70K",
+    "funding": "$700K"
+  }
+},
+{
+  "_id": {
+    "$oid": "68fcfcb499fb97e66e2be51c"
+  },
+  "id": "26",
+  "title": "FinTrack",
+  "oneLineDesc": "Track your investments and finances seamlessly.",
+  "url": "https://www.fintrack.com",
+  "imageURL": "https://saaspo.com/cdn-cgi/image/format=avif,quality=90/https://cdn.prod.website-files.com/6399d2d87f63ad4774e11dc2/68ed0789d491930f63b4bf57_take---2025-10-13T150411.046-(1).jpeg",
+  "fullDesc": "FinTrack provides real-time dashboards and insights for personal and business finance management.",
+  "isFeatured": true,
+  "isSponsored": false,
+  "dateAdded": "2025-10-25T00:00:00.000Z",
+  "tags": {
+    "industry": "Finance",
+    "type": "Dashboard",
+    "style": "Modern",
+    "stack": "React"
+  },
+  "details": {
+    "founder": "Emma Davis",
+    "year": "2019",
+    "size": "20-50",
+    "location": "New York, NY",
+    "monRevenue": "$120K",
+    "funding": "$1.5M"
+  }
+},
+{
+  "_id": {
+    "$oid": "68fcfcb499fb97e66e2be51d"
+  },
+  "id": "27",
+  "title": "EduBlog",
+  "oneLineDesc": "Your daily dose of educational insights.",
+  "url": "https://www.edublog.com",
+  "imageURL": "https://saaspo.com/cdn-cgi/image/format=avif,quality=90/https://cdn.prod.website-files.com/6399d2d87f63ad4774e11dc2/68d11fcf3c1b834461d08e53_take---2025-09-22T110528.923-copy-(1).jpeg",
+  "fullDesc": "EduBlog publishes high-quality content for students and educators, covering tutorials, guides, and research insights.",
+  "isFeatured": false,
+  "isSponsored": true,
+  "dateAdded": "2025-10-25T00:00:00.000Z",
+  "tags": {
+    "industry": "Education",
+    "type": "Blog",
+    "style": "Minimal",
+    "stack": "Vue"
+  },
+  "details": {
+    "founder": "John Lee",
+    "year": "2020",
+    "size": "5-10",
+    "location": "Boston, MA",
+    "monRevenue": "$15K",
+    "funding": "$200K"
+  }
+},
+{
+  "_id": {
+    "$oid": "68fcfcb499fb97e66e2be51e"
+  },
+  "id": "28",
+  "title": "TechPortfolio",
+  "oneLineDesc": "Showcase your tech projects in style.",
+  "url": "https://www.techportfolio.com",
+  "imageURL": "https://saaspo.com/cdn-cgi/image/format=avif,quality=90/https://cdn.prod.website-files.com/6399d2d87f63ad4774e11dc2/68c286dd7ac326ef59700cb1_take---2025-09-11T091850.805-(1).jpeg",
+  "fullDesc": "TechPortfolio is a platform for developers and tech enthusiasts to showcase their projects with colorful and interactive portfolios.",
+  "isFeatured": true,
+  "isSponsored": true,
+  "dateAdded": "2025-10-25T00:00:00.000Z",
+  "tags": {
+    "industry": "Technology",
+    "type": "Portfolio",
+    "style": "Colorful",
+    "stack": "Angular"
+  },
+  "details": {
+    "founder": "Sara Kim",
+    "year": "2021",
+    "size": "10-20",
+    "location": "San Francisco, CA",
+    "monRevenue": "$80K",
+    "funding": "$500K"
+  }
+},
+{
+  "_id": {
+    "$oid": "68fcfcb499fb97e66e2be51f"
+  },
+  "id": "29",
+  "title": "FinancePro",
+  "oneLineDesc": "Advanced financial insights for businesses.",
+  "url": "https://www.financepro.com",
+  "imageURL": "https://saaspo.com/cdn-cgi/image/format=avif,quality=90/https://cdn.prod.website-files.com/6399d2d87f63ad4774e11dc2/68c286dc7ac326ef59700c90_take---2025-09-11T092148.422-(1).jpeg",
+  "fullDesc": "FinancePro provides real-time analytics and dashboards for businesses to manage investments and operations efficiently.",
+  "isFeatured": false,
+  "isSponsored": false,
+  "dateAdded": "2025-10-25T00:00:00.000Z",
+  "tags": {
+    "industry": "Finance",
+    "type": "Dashboard",
+    "style": "Modern",
+    "stack": "React"
+  },
+  "details": {
+    "founder": "Michael Brown",
+    "year": "2018",
+    "size": "50-100",
+    "location": "Chicago, IL",
+    "monRevenue": "$300K",
+    "funding": "$3M"
+  }
+},
+{
+  "_id": {
+    "$oid": "68fcfcb499fb97e66e2be520"
+  },
+  "id": "30",
+  "title": "LearnSpace",
+  "oneLineDesc": "Explore courses, blogs, and learning resources.",
+  "url": "https://www.learnspace.com",
+  "imageURL": "https://saaspo.com/cdn-cgi/image/format=avif,quality=90/https://cdn.prod.website-files.com/6399d2d87f63ad4774e11dc2/68a193c6a0c78a16284809e3_take---2025-08-17T093242.262-(1).jpeg",
+  "fullDesc": "LearnSpace is a platform combining blogs, tutorials, and courses to make learning engaging and minimalistic.",
+  "isFeatured": true,
+  "isSponsored": false,
+  "dateAdded": "2025-10-25T00:00:00.000Z",
+  "tags": {
+    "industry": "Education",
+    "type": "Blog",
+    "style": "Minimal",
+    "stack": "Vue"
+  },
+  "details": {
+    "founder": "Linda Green",
+    "year": "2022",
+    "size": "5-15",
+    "location": "Seattle, WA",
+    "monRevenue": "$25K",
+    "funding": "$100K"
+  }
+},
+{
+  "_id": {
+    "$oid": "68fcfcb499fb97e66e2be521"
+  },
+  "id": "31",
+  "title": "AngularTech",
+  "oneLineDesc": "Create colorful tech portfolios effortlessly.",
+  "url": "https://www.angulartech.com",
+  "imageURL": "https://saaspo.com/cdn-cgi/image/format=avif,quality=90/https://cdn.prod.website-files.com/6399d2d87f63ad4774e11dc2/688c830b78b96434e51f456b_take---2025-08-01T100250.837-(1).jpeg",
+  "fullDesc": "AngularTech helps developers build vibrant portfolios to display their projects, skills, and achievements online.",
+  "isFeatured": false,
+  "isSponsored": true,
+  "dateAdded": "2025-10-25T00:00:00.000Z",
+  "tags": {
+    "industry": "Technology",
+    "type": "Portfolio",
+    "style": "Colorful",
+    "stack": "Angular"
+  },
+  "details": {
+    "founder": "Kevin White",
+    "year": "2020",
+    "size": "15-30",
+    "location": "Los Angeles, CA",
+    "monRevenue": "$60K",
+    "funding": "$400K"
+  }
+}]
