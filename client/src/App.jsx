@@ -23,12 +23,12 @@ export default function App() {
           path="/"
           element={<Layout openForm={openForm} setOpenForm={setOpenForm} />}
         >
-          <Route index element={<Home />} />
-          <Route path="about" element={<About />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="explore" element={<Explore />} />
-          <Route path="privacyandpolicy" element={<PrivacyAndPolicy />} />
-          <Route path="termsandconditions" element={<TermsAndConditions />} />
+          <Route index element={<Home />} key={window.location.pathname} />
+          <Route path="about" element={<About />} key={window.location.pathname} />
+          <Route path="contact" element={<Contact />} key={window.location.pathname} />
+          <Route path="explore" element={<Explore />} key={window.location.pathname} />
+          <Route path="privacyandpolicy" element={<PrivacyAndPolicy />} key={window.location.pathname} />
+          <Route path="termsandconditions" element={<TermsAndConditions />} key={window.location.pathname} />
           <Route path="details/:id" element={<Details />} />
         </Route>
       </Routes>
