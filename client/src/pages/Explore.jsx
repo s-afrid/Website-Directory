@@ -9,7 +9,7 @@ const Explore = () => {
     <div>
       
       <SearchFilterHeader />
-      <CardContainer />
+      <CardContainer batchSize={6}/>
       
     </div>
   )

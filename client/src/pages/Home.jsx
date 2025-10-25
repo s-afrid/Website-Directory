@@ -12,7 +12,7 @@ const Home = () => {
       
         <HeroBanner />
         <SearchFilter />
-        <CardContainer />
+        <CardContainer batchSize={9}/>
         
     </div>
   )
