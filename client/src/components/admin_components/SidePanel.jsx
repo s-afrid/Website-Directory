@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom"; 
-import { LogOut, ArrowLeft, ArrowRight, BarChart2, Settings, FileText, Mail, Users } from "lucide-react";
+import { LogOut, ArrowLeft, ArrowRight, BarChart2, Settings, FileText, Mail, Users, UserStar } from "lucide-react";
 
 const SIDEBAR_WIDTH = 240;
 const BUTTON_SIZE = 40;
@@ -17,6 +17,7 @@ const SidePanel = ({ navbarHeight = 64, isOpen, setIsOpen }) => {
   { name: "Newsletter", icon: <Mail className="w-4 h-4 mr-2"/>, path: "/admin/newsletter" },
   { name: "Sponsors and Featured", icon: <Users className="w-4 h-4 mr-2"/>, path: "/admin/sponsors" },
   { name: "Update About", icon: <FileText className="w-4 h-4 mr-2"/>, path: "/admin/about" },
+  { name: "Update Admin", icon: <UserStar className="w-4 h-4 mr-2"/>, path: "/admin/updateadmin" },
 ];
 
   const commonMenuItemClasses =

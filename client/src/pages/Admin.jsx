@@ -8,6 +8,7 @@ import Privacy from "../components/admin_components/Privacy";
 import Newsletter from "../components/admin_components/Newsletter";
 import Sponsor from "../components/admin_components/Sponsor";
 import AboutUpdate from "../components/admin_components/AboutUpdate";
+import AdminUpdate from "../components/admin_components/AdminUpdate";
 
 const SIDEBAR_WIDTH = 240;
 
@@ -35,6 +36,7 @@ const Admin = () => {
   <Route path="newsletter" element={<Newsletter />} />
   <Route path="sponsors" element={<Sponsor />} />
   <Route path="about" element={<AboutUpdate />} />
+  <Route path="update/admin" element={<AdminUpdate />} />
   <Route path="*" element={<Navigate to="stats" replace />} />
 </Routes>
 
