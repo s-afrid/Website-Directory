@@ -1,6 +1,9 @@
+import dotenv from "dotenv";
+dotenv.config();
+
+
 import express from 'express';
 import mongoose from 'mongoose';
-import dotenv from 'dotenv';
 import cors from 'cors';
 import path from "path";
 import { fileURLToPath } from "url";
@@ -10,19 +13,22 @@ import subscriberRoutes from './routes/subscriberRoute.js'
 import submissionRoutes from './routes/submissionRoute.js'
 import sponsorRoutes from './routes/sponsorRoute.js'
 import aboutRoutes from "./routes/about.js"; 
+import privacyRoutes from './routes/privacy.js'; 
+import adminPrivacyRouter from './routes/admin/privacy.js';
 
 import authRoutes from "./routes/auth.js";
 import analyticsRoutes from './routes/analytics.js';
 
 
-dotenv.config();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
 
-app.use(express.json())
+app.use(express.json());
 app.use(cors());
+
+app.use('/api/admin/privacy', adminPrivacyRouter);
 
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
@@ -49,6 +55,8 @@ app.use("/api", authRoutes);
 app.use('/api/analytics', analyticsRoutes);
 
 app.use("/api/about", aboutRoutes);
+
+app.use('/api/privacy', privacyRoutes);
 
 
 // ✅ Serve frontend (Vite build output)
