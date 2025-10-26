@@ -15,6 +15,7 @@ import sponsorRoutes from './routes/sponsorRoute.js'
 import aboutRoutes from "./routes/about.js"; 
 import privacyRoutes from './routes/privacy.js'; 
 import adminPrivacyRouter from './routes/admin/privacy.js';
+import adminTermsRouter from './routes/adminTerms.js'
 
 import authRoutes from "./routes/auth.js";
 import analyticsRoutes from './routes/analytics.js';
@@ -57,6 +58,11 @@ app.use('/api/analytics', analyticsRoutes);
 app.use("/api/about", aboutRoutes);
 
 app.use('/api/privacy', privacyRoutes);
+
+app.use('/api/admin/terms', adminTermsRouter);
+app.use('/api/terms', adminTermsRouter); // for frontend fetching
+
+
 
 
 // ✅ Serve frontend (Vite build output)
