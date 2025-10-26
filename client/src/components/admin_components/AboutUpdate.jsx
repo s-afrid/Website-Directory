@@ -25,21 +25,28 @@ const AboutUpdate = () => {
     </div>
   );
 
-  const FileUploadField = ({ label, pos }) => (
+  const FileUploadField = ({ label, pos }) => {
+  const [fileName, setFileName] = useState(''); // local state for display
+
+  return (
     <div className="flex flex-col">
       <label className="block mb-2 font-semibold text-gray-700 capitalize">
         {label}
       </label>
       <input
         type="file"
-        onChange={(e) =>
-          setImages((prev) => ({ ...prev, [pos]: e.target.files[0] }))
-        }
-        // Custom styling for file input to match the button aesthetic
+        onChange={(e) => {
+          const file = e.target.files[0];
+          setImages((prev) => ({ ...prev, [pos]: file }));
+          setFileName(file?.name || '');
+        }}
         className="w-full text-sm text-gray-700 bg-white border border-gray-300 p-2 rounded-lg cursor-pointer file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100 transition duration-150 shadow-sm"
       />
+      {fileName && <p className="mt-1 text-sm text-gray-600">{fileName}</p>}
     </div>
   );
+};
+
 
 
   const handleSubmit = async (e) => {

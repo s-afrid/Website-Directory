@@ -60,7 +60,7 @@ export default function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 items-start">
             {/* 🔹 Logo & Social Section */}
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-3">INSPIRO</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-3">SaaS Examples</h2>
               <p className="text-gray-600 text-sm leading-relaxed mb-4">
                 Discover curated SaaS website examples to inspire your next
                 design project.
