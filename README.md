@@ -27,37 +27,12 @@ This project showcases the best website examples from across the internet — co
 | **Backend** | Node.js + Express |
 | **Database** | MongoDB + Mongoose |
 | **Storage** | Cloudinary |
-| **Hosting** | Vercel (Frontend), Render / Fly.io (Backend) |
+| **Hosting** | Render |
 
 ---
 
-## 📂 Folder Structure
-
-website-directory/
-┣ client/ # Frontend (Vite + React)
-┃ ┣ src/
-┃ ┃ ┣ components/ # Navbar, Hero, FilterBar, Cards, Footer
-┃ ┃ ┣ pages/ # Home, WebsiteDetail
-┃ ┃ ┣ api/ # Axios instance
-┃ ┃ ┣ App.jsx
-┃ ┗ main.jsx
-┣ server/ # Backend (Node + Express)
-┃ ┣ controllers/
-┃ ┣ models/
-┃ ┣ routes/
-┃ ┣ config/
-┃ ┗ server.js
-┣ .env
-┣ package.json
-┗ README.md
-
-
----
-
-## ⚙️ Installation & Setup
-
-### 1️⃣ Clone the Repository
+## Clone the Repository
 ```bash
-git clone https://github.com/yourusername/website-directory.git
+git clone https://github.com/s-afrid/website-directory.git
 cd website-directory
 ```
