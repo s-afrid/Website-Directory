@@ -1,0 +1,29 @@
+{
+  "name": "website-directory",
+  "version": "1.0.0",
+  "description": "A modern, fast, and responsive **directory website** built using the **MERN stack (MongoDB, Express, React, Node.js)** and powered by **Vite** for blazing-fast frontend performance.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "client": "npm run dev --prefix client",
+    "server": "nodemon server/server.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "build": "npm run build --prefix client",
+    "start": "node backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/s-afrid/Website-Directory.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/s-afrid/Website-Directory/issues"
+  },
+  "homepage": "https://github.com/s-afrid/Website-Directory#readme",
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "nodemon": "^3.1.10"
+  }
+}
