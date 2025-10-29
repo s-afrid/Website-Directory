@@ -24,7 +24,7 @@ const Card = ({ company }) => {
 
   const handleClick = () => {
     setSelectedCompany(company); // store clicked company
-    navigate(`/details/${company._id}`); // navigate to details page
+    navigate(`/details/${company._id}`, { state: { company }}); // navigate to details page
   };
 
   return (

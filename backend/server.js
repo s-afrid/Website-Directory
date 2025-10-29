@@ -1,6 +1,8 @@
 import dotenv from "dotenv";
+
 dotenv.config();
 
+console.log("✅ Cloudinary Key:", process.env.CLOUDINARY_API_KEY);
 
 import express from 'express';
 import mongoose from 'mongoose';
@@ -20,14 +22,15 @@ import adminTermsRouter from './routes/adminTerms.js'
 import authRoutes from "./routes/auth.js";
 import analyticsRoutes from './routes/analytics.js';
 
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
 const app = express();
 
 app.use(express.json());
 app.use(cors());
+app.use(express.urlencoded({ extended: true }));
+
+app.use("/api/about", aboutRoutes);
+console.log("✅ /api/about route loaded");
+
 
 app.use('/api/admin/privacy', adminPrivacyRouter);
 
@@ -55,7 +58,12 @@ app.use("/api", authRoutes);
 
 app.use('/api/analytics', analyticsRoutes);
 
-app.use("/api/about", aboutRoutes);
+app.get("/test", (req, res) => {
+  console.log("✅ /test route hit!");
+  res.send("Backend working fine!");
+});
+
+
 
 app.use('/api/privacy', privacyRoutes);
 
@@ -63,7 +71,8 @@ app.use('/api/admin/terms', adminTermsRouter);
 app.use('/api/terms', adminTermsRouter); // for frontend fetching
 
 
-
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // ✅ Serve frontend (Vite build output)
 const frontendPath = path.join(__dirname, "../client/dist");
@@ -73,4 +82,4 @@ app.use(express.static(frontendPath));
 app.use((req, res) => {
   res.sendFile(path.join(frontendPath, "index.html"));
 });
-app.listen(process.env.PORT, () => console.log('Server running on port 3000'));
+app.listen(process.env.PORT, () => console.log(`Server running on port ${process.env.PORT}`));

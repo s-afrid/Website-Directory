@@ -1,17 +1,28 @@
 import React from 'react';
 import { User, Calendar, Users, MapPin, DollarSign, Briefcase } from 'lucide-react';
+import { useLocation } from 'react-router-dom';
 import { useSelectedCompany } from '../context/SelectedCompanyContext';
 
 const PageDetails = () => {
-  const { selectedCompany } = useSelectedCompany();
+  const location = useLocation();
+  const { selectedCompany, setSelectedCompany } = useSelectedCompany();
 
-  if (!selectedCompany) return <div>Loading...</div>;
+  const company = location.state?.company || selectedCompany;
+
+  React.useEffect(() => {
+    if (location.state?.company) {
+      setSelectedCompany(location.state.company);
+    }
+  }, [location.state, setSelectedCompany]);
+
+  if (!company) return <div>Loading...</div>;
+
 
   const {
     details = {},
     tags = {},
     fullDesc = ''
-  } = selectedCompany;
+  } = company;
 
   // Map API data to stat items
   const statItems = [
@@ -31,7 +42,7 @@ const PageDetails = () => {
   ];
 
   return (
-    <div className="min-h-screen w-full bg-white flex justify-center py-12 px-4 sm:px-6 lg:px-8 font-sans">
+    <div className="w-full bg-white flex justify-center py-10 px-4 sm:px-6 lg:px-8 font-sans">
       <div className="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-3 gap-8">
         
         {/* Left Column: Description and Key Stats */}

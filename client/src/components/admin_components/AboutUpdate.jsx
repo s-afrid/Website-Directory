@@ -12,7 +12,7 @@ const AboutUpdate = () => {
   // Load current About data on mount
   useEffect(() => {
     axios
-      .get("/api/about")
+      .get("http://localhost:5000/api/about")
       .then((res) => {
         if (res.data) {
           const about = res.data;
@@ -51,7 +51,7 @@ const AboutUpdate = () => {
       if (images.center) formData.append("center", images.center);
       if (images.right) formData.append("right", images.right);
 
-      const res = await axios.post("/api/about", formData, {
+      const res = await axios.post("http://localhost:5000/api/about", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 

@@ -75,17 +75,18 @@ const Navbar = () => {
                   }
 
                   return (
-                    <Link
-                      key={item.name}
-                      to={item.to}
-                      className={`${baseLinkClass} ${
-                        isActive
-                          ? "text-green-500 font-semibold"
-                          : "text-gray-700 hover:text-green-500"
-                      }`}
-                    >
-                      {item.name}
-                    </Link>
+                    <a
+  key={item.name}
+  href={item.to}
+  className={`${baseLinkClass} ${
+    isActive
+      ? "text-green-500 font-semibold"
+      : "text-gray-700 hover:text-green-500"
+  }`}
+>
+  {item.name}
+</a>
+
                   );
                 })}
               </div>

@@ -23,7 +23,7 @@ const Details = () => {
       <DetailsHeader company={company}/> {/* pass fetched company */}
       <PageDetails />
 
-      <div className="bg-gray-50/50 py-16 px-4 sm:px-6 lg:px-8">
+      <div className="bg-gray-50/50 py-5 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1F2937]">
             Similar Website Examples

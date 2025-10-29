@@ -15,7 +15,7 @@ const DetailsHeader = ({ company }) => {
     <div className="h-50vh flex flex-col items-center justify-center px-4 sm:px-6 md:px-10 py-6 bg-[#00796B] font-sans text-white">
 
       {/* Header Section */}
-      <div className="text-center mb-5 w-full max-w-3xl shrink-0">
+      <div className="text-center mb-6 w-full max-w-3xl shrink-0">
         <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-1">
           {title}
         </h1>
