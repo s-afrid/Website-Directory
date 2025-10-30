@@ -30,12 +30,17 @@ export default function SidePanel({ navbarHeight = 64, isOpen, setIsOpen }) {
   const commonMenuItemClasses =
     "text-left text-sm p-2 rounded-lg flex items-center w-full transition-all";
 
-  // ✅ Logout clears token + resets state + returns to login popup
+  // ✅ Logout: clears token + redirects to admin (which triggers login popup)
   const handleLogout = () => {
-    localStorage.removeItem("adminToken");
-    localStorage.removeItem("adminLoggedIn");
-    localStorage.removeItem("adminTokenExpiry");
-    navigate('/');
+    sessionStorage.removeItem("adminToken");
+    sessionStorage.removeItem("adminLoggedIn");
+    sessionStorage.removeItem("adminTokenExpiry");
+
+    // Optional: delay a bit to ensure state clears
+    setTimeout(() => {
+      navigate("/admin", { replace: true }); // 👈 redirect to /admin to show login popup
+      window.location.reload(); // 👈 ensure full reset of protected route
+    }, 200);
   };
 
   return (
@@ -78,7 +83,7 @@ export default function SidePanel({ navbarHeight = 64, isOpen, setIsOpen }) {
             <NavLink
               key={index}
               to={item.path}
-              end={false} // so active works for nested routes
+              end={false}
               className={({ isActive }) =>
                 `${commonMenuItemClasses} ${
                   isActive
