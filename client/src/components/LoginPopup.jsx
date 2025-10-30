@@ -13,29 +13,37 @@ const LoginSchema = Yup.object().shape({
     .required("Password is required"),
 });
 
-export default function LoginPopup({ onClose, onSuccess }) {
-  const navigate = useNavigate();
-  const [apiError, setApiError] = useState("");
+// ✅ Utility to hash passwords using SHA-256
+async function hashPassword(password) {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(password);
+  const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  return hashArray.map((b) => b.toString(16).padStart(2, "0")).join("");
+}
 
-  // Disable background scroll when modal is open
+export default function LoginPopup({ onClose, onSuccess }) {
+  const [apiError, setApiError] = useState("");
+   const navigate = useNavigate();
+
+  // disable body scroll while popup is open
   useEffect(() => {
     document.body.style.overflow = "hidden";
     return () => (document.body.style.overflow = "auto");
   }, []);
 
   const handleClose = () => {
-    onClose?.();
-    navigate(-1); // redirect to previous page
+    navigate("/");
   };
 
   return (
     <div
       className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex justify-center items-center"
-      onClick={handleClose} // click outside to close
+      onClick={handleClose}
     >
       <div
         className="relative w-[90%] max-w-md bg-white rounded-2xl shadow-2xl p-6 sm:p-10 animate-fadeIn"
-        onClick={(e) => e.stopPropagation()} // prevent closing on inner click
+        onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
         <button
@@ -57,7 +65,6 @@ export default function LoginPopup({ onClose, onSuccess }) {
           </svg>
         </button>
 
-        {/* Header */}
         <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-2 text-center">
           Admin Login
         </h2>
@@ -65,33 +72,47 @@ export default function LoginPopup({ onClose, onSuccess }) {
           Please login to access the Admin Dashboard
         </p>
 
-        {/* Formik Form */}
         <Formik
           initialValues={{ email: "", password: "" }}
           validationSchema={LoginSchema}
           onSubmit={async (values, { setSubmitting }) => {
-            setApiError("");
-            try {
-              const response = await fetch("api/login", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(values),
-              });
+  setApiError("");
 
-              const result = await response.json();
+  try {
+    const res = await fetch("/api/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(values),
+    });
 
-              if (!response.ok) {
-                setApiError(result.message || "Invalid credentials");
-              } else {
-                onSuccess(); // call parent callback
-              }
-            } catch (error) {
-              console.error(error);
-              setApiError("Server error. Please try again later.");
-            } finally {
-              setSubmitting(false);
-            }
-          }}
+    const data = await res.json();
+
+    if (res.ok) {
+      console.log("✅ Login success (backend verified)");
+
+      // Save token + session info
+      sessionStorage.setItem("adminToken", data.token);
+      sessionStorage.setItem("adminLoggedIn", "true");
+
+      // Decode expiry (2h) → save timestamp
+      const payload = JSON.parse(atob(data.token.split(".")[1]));
+      const expiry = payload.exp * 1000;
+      sessionStorage.setItem("adminTokenExpiry", expiry.toString());
+
+      setTimeout(() => {
+        onSuccess?.();
+      }, 100);
+    } else {
+      console.warn("❌ Invalid credentials:", data.message);
+      setApiError(data.message || "Login failed");
+    }
+  } catch (err) {
+    console.error("💥 Login error:", err);
+    setApiError("Server unreachable. Try again later.");
+  } finally {
+    setSubmitting(false);
+  }
+}}
         >
           {({ isSubmitting }) => (
             <Form className="flex flex-col gap-6">
@@ -129,7 +150,6 @@ export default function LoginPopup({ onClose, onSuccess }) {
                 />
               </div>
 
-              {/* API Error Message */}
               {apiError && (
                 <div className="text-center text-red-600 text-sm font-medium">
                   {apiError}

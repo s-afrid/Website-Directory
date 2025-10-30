@@ -12,24 +12,29 @@ import AdminUpdate from "../components/admin_components/AdminUpdate";
 
 const SIDEBAR_WIDTH = 240;
 
-const Admin = () => {
+export default function Admin() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
     <div className="min-h-screen flex flex-col">
+      {/* Top Navbar */}
       <Navbar />
 
+      {/* Side + Main Layout */}
       <div className="flex flex-1 overflow-hidden relative">
-        {/* Sidebar */}
         <SidePanel isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
 
-        {/* Main Content */}
+        {/* Main Admin Content */}
         <div
           className="flex-1 overflow-auto bg-gray-100 p-4 transition-all duration-300"
-          style={{ marginLeft: window.innerWidth >= 768 ? SIDEBAR_WIDTH : 0 }} // push content on desktop
+          style={{
+            marginLeft: window.innerWidth >= 768 ? SIDEBAR_WIDTH : 0,
+          }}
         >
           <Routes>
-  <Route index element={<Navigate to="stats" replace />} />
+  <Route index element={<div className="text-lg font-semibold text-gray-700 p-4">
+    Welcome to the Admin Dashboard 👋
+  </div>} />
   <Route path="stats" element={<AnalyticsDashboard />} />
   <Route path="manage" element={<Manage />} />
   <Route path="privacy" element={<Privacy />} />
@@ -37,13 +42,11 @@ const Admin = () => {
   <Route path="sponsors" element={<Sponsor />} />
   <Route path="about" element={<AboutUpdate />} />
   <Route path="updateadmin" element={<AdminUpdate />} />
-  <Route path="*" element={<Navigate to="stats" replace />} />
+  <Route path="*" element={<Navigate to="." replace />} />
 </Routes>
 
         </div>
       </div>
     </div>
   );
-};
-
-export default Admin;
+}
