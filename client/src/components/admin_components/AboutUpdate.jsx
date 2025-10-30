@@ -3,38 +3,43 @@ import axios from "axios";
 
 const AboutUpdate = () => {
   const [title, setTitle] = useState("");
-  const [content, setContent] = useState(""); // textarea content
+  const [content, setContent] = useState("");
   const [images, setImages] = useState({ left: null, center: null, right: null });
   const [preview, setPreview] = useState({ left: "", center: "", right: "" });
   const [notification, setNotification] = useState({ message: "", type: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Load current About data on mount
+  // ✅ Load About data (handle both array and single object)
   useEffect(() => {
     axios
       .get("http://localhost:5000/api/about")
       .then((res) => {
-        if (res.data) {
-          const about = res.data;
-          setTitle(about.header?.[0] || "");
-          setContent(about.content?.[0]?.paragraphs?.[0] || "");
+        let data = res.data;
+
+        if (Array.isArray(data)) data = data[0];
+        if (data && data._doc) data = data._doc;
+
+        if (data) {
+          setTitle(data.header?.[0] || "");
+          setContent(data.content?.[0]?.paragraphs?.[0] || "");
           setPreview({
-            left: about.images?.left || "",
-            center: about.images?.center || "",
-            right: about.images?.right || "",
+            left: data.images?.left || "",
+            center: data.images?.center || "",
+            right: data.images?.right || "",
           });
         }
       })
-      .catch((err) => console.error(err));
+      .catch((err) => console.error("❌ Fetch Error:", err));
   }, []);
 
-  // Handle file selection and preview
+  // ✅ Handle file selection
   const handleFileChange = (e, pos) => {
     const file = e.target.files[0];
     setImages((prev) => ({ ...prev, [pos]: file }));
     if (file) setPreview((prev) => ({ ...prev, [pos]: URL.createObjectURL(file) }));
   };
 
+  // ✅ Submit handler (create or update)
   const handleSubmit = async (e) => {
     e.preventDefault();
     setNotification({ message: "", type: "" });
@@ -47,6 +52,8 @@ const AboutUpdate = () => {
         "content",
         JSON.stringify([{ sectionTitle: title, paragraphs: [content] }])
       );
+
+      // Only append if new images are uploaded
       if (images.left) formData.append("left", images.left);
       if (images.center) formData.append("center", images.center);
       if (images.right) formData.append("right", images.right);
@@ -55,10 +62,10 @@ const AboutUpdate = () => {
         headers: { "Content-Type": "multipart/form-data" },
       });
 
-      console.log(res.data);
+      console.log("✅ Server Response:", res.data);
       setNotification({ message: "Updated successfully ✅", type: "success" });
     } catch (err) {
-      console.error(err);
+      console.error("❌ Update Error:", err);
       setNotification({ message: "Error updating ❌", type: "error" });
     } finally {
       setIsSubmitting(false);
@@ -121,9 +128,15 @@ const AboutUpdate = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 border-t border-gray-100">
           {["left", "center", "right"].map((pos) => (
             <div key={pos} className="flex flex-col items-center">
-              <label className="block mb-2 font-semibold text-gray-700 capitalize">{pos} Image</label>
+              <label className="block mb-2 font-semibold text-gray-700 capitalize">
+                {pos} Image
+              </label>
               {preview[pos] && (
-                <img src={preview[pos]} alt={pos} className="w-full h-40 object-cover mb-2 rounded-lg shadow-sm" />
+                <img
+                  src={preview[pos].startsWith("blob:") ? preview[pos] : `http://localhost:5000${preview[pos]}`}
+                  alt={pos}
+                  className="w-full h-40 object-cover mb-2 rounded-lg shadow-sm"
+                />
               )}
               <input
                 type="file"

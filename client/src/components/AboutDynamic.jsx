@@ -9,9 +9,9 @@ const AboutDynamic = () => {
     axios
       .get('http://localhost:5000/api/about')
       .then((res) => {
-        setAboutData(res.data); // direct data
+        if (res.data) setAboutData(res.data);
       })
-      .catch((err) => console.error(err))
+      .catch((err) => console.error("❌ Error fetching About:", err))
       .finally(() => setLoading(false));
   }, []);
 
@@ -23,12 +23,18 @@ const AboutDynamic = () => {
     return <div className="text-center py-10 text-red-500 text-lg rubik">No About data found</div>;
   }
 
-  const { header, images, content } = aboutData;
+  const { header = [], images = {}, content = [] } = aboutData;
+
+  // ✅ Helper to get valid image URL (Cloudinary or local)
+  const getImageUrl = (src) => {
+    if (!src) return "";
+    return src.startsWith("http") ? src : `http://localhost:5000${src}`;
+  };
 
   return (
     <div className="min-h-screen bg-white rubik pt-16 pb-20">
       {/* Header */}
-      {header && header.length > 0 && (
+      {header.length > 0 && (
         <div className="text-center px-4 mb-16 sm:mb-20 md:mb-24">
           <div className="max-w-4xl mx-auto space-y-2">
             {header.map((line, i) => (
@@ -44,13 +50,13 @@ const AboutDynamic = () => {
       )}
 
       {/* Images */}
-      {images && (
+      {Object.keys(images).length > 0 && (
         <div className="max-w-7xl mx-auto mb-16 sm:mb-20 md:mb-24 px-4 overflow-hidden">
           <div className="flex items-center justify-center relative">
             {images.left && (
               <div className="absolute left-0 transform -translate-x-1/3 md:relative md:transform-none flex-shrink-0 w-20 sm:w-28 md:w-40 lg:w-48 -ml-2 sm:-ml-4 md:-ml-8 lg:-ml-12">
                 <img
-                  src={`http://localhost:5000${images.left}`}
+                  src={getImageUrl(images.left)}
                   alt="Left"
                   className="w-full h-auto shadow-xl rounded-lg transform translate-y-4 md:translate-y-0"
                 />
@@ -59,7 +65,7 @@ const AboutDynamic = () => {
             {images.center && (
               <div className="flex-shrink-0 w-32 sm:w-56 md:w-72 lg:w-96 xl:w-[420px] z-10 mx-2 sm:mx-4">
                 <img
-                  src={`http://localhost:5000${images.center}`}
+                  src={getImageUrl(images.center)}
                   alt="Center"
                   className="w-full h-auto shadow-2xl rounded-lg"
                 />
@@ -68,7 +74,7 @@ const AboutDynamic = () => {
             {images.right && (
               <div className="absolute right-0 transform translate-x-1/3 md:relative md:transform-none flex-shrink-0 w-20 sm:w-28 md:w-40 lg:w-48 -mr-2 sm:-mr-4 md:-mr-8 lg:-mr-12">
                 <img
-                  src={`http://localhost:5000${images.right}`}
+                  src={getImageUrl(images.right)}
                   alt="Right"
                   className="w-full h-auto shadow-xl rounded-lg transform -translate-y-4 md:-translate-y-0"
                 />
@@ -82,7 +88,7 @@ const AboutDynamic = () => {
       <div className="w-full px-4 sm:px-8 lg:px-12">
         <div className="max-w-2xl mx-auto">
           <div className="text-gray-700 leading-relaxed space-y-8 text-center">
-            {content?.map((section, idx) => (
+            {content.map((section, idx) => (
               <section key={idx} className="text-lg space-y-4">
                 {section.sectionTitle && (
                   <h2 className="text-2xl font-bold text-gray-900 mb-2">
