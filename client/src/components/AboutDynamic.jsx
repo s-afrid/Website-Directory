@@ -7,7 +7,7 @@ const AboutDynamic = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:5000/api/about')
+      .get('/api/about')
       .then((res) => {
         if (res.data) setAboutData(res.data);
       })
@@ -28,11 +28,11 @@ const AboutDynamic = () => {
   // ✅ Helper to get valid image URL (Cloudinary or local)
   const getImageUrl = (src) => {
     if (!src) return "";
-    return src.startsWith("http") ? src : `http://localhost:5000${src}`;
+    return src.startsWith("http") ? src : `${src}`;
   };
 
   return (
-    <div className="min-h-screen bg-white rubik pt-16 pb-20">
+    <div className="bg-white rubik pt-10 pb-10">
       {/* Header */}
       {header.length > 0 && (
         <div className="text-center px-4 mb-16 sm:mb-20 md:mb-24">

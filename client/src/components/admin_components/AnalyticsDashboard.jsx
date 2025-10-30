@@ -17,7 +17,7 @@ const AnalyticsDashboard = () => {
   const logVisit = useCallback(async () => {
     const deviceType = getDeviceType();
     try {
-      await fetch('http://localhost:5000/api/analytics/log', {
+      await fetch('/api/analytics/log', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ deviceType })
@@ -29,7 +29,7 @@ const AnalyticsDashboard = () => {
 
   const fetchAnalytics = useCallback(async () => {
     try {
-      const res = await fetch('http://localhost:5000/api/analytics');
+      const res = await fetch('/api/analytics');
       const data = await res.json();
       const formattedData = data.map(d => ({
         name: new Date(d.date).toLocaleDateString('en-US', { day: '2-digit', month: 'short' }),
